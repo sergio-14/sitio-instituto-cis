@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load bootstrap_filters %}
+
+{% block content %}
+<div class="container-fluid p-lg-5 no-gutte p-0">
+  <h2 class="colortitle titlesuperior pb-2">{{ titulo }}</h2>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row fontI pb-3">
+      <div class="col-md-8 mb-3">
+        <label class="form-label">Seleccione al usuario</label>
+        {{ form.usuario|add_class:"form-control" }}
+        {% for error in form.usuario.errors %}
+          <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div class="col-md-4 mb-3">
+        <label class="form-label">Seleccione Titutulo</label>
+        {{ form.titulo_profesional|add_class:"form-control" }}
+        {% for error in form.titulo_profesional.errors %}
+          <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+      
+      <div class="col-md-12 mb-3">
+        <label class="form-label">Especialidad</label>
+        {{ form.especialidad|add_class:"form-control" }}
+        {% for error in form.especialidad.errors %}
+          <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+
+      
+    </div>
+    
+    <div class="mt-4">
+      <button type="submit" class="btn btn-dark">Guardar Datos</button>
+      <a href="{% url 'listar_docentes' %}" class="btn btn-secondary">Cancelar registro</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

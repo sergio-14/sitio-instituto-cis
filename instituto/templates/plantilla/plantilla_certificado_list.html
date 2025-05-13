@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Listado de Plantillas de Certificado</h1>
+  <a href="{% url 'plantilla_certificado_create' %}">Crear nueva plantilla</a>
+  <ul>
+    {% for plantilla in object_list %}
+      <li>{{ plantilla.nombre }}</li>
+    {% empty %}
+      <li>No hay plantillas registradas.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load bootstrap_filters %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid p-lg-5 no-gutte p-0">
+    <h2 class="colortitle titlesuperior pb-2">{{ accion }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <!-- Buscador de estudiante -->
+        <div class="row fontI pb-3">
+            <div class="col-lg-12 col-12 mb-3">
+                <label for="buscar_estudiante" class="form-label">Buscar Estudiante</label>
+                <input type="text" id="buscar_estudiante" class="form-control" placeholder="Nombre del estudiante">
+                <input type="hidden" name="estudiante" id="estudiante_id">
+                <ul id="resultados_estudiantes" class="list-group mt-2"></ul>
+                <!-- Label para mostrar el nombre completo o mensaje si no se encuentra -->
+                <label id="nombre_completo_estudiante" class="mt-2 "></label>
+            </div>
+            <!-- Dropdown para seleccionar la inscripción del estudiante seleccionado -->
+            <div class="col-lg-12 col-12 mb-3">
+                <label for="inscripcion_select" class="form-label">Inscripción</label>
+                <select name="inscripcion" id="inscripcion_select" class="form-control">
+                    <option value="">Seleccione una inscripción</option>
+                </select>
+            </div>
+        </div>
+        <!-- Campos del pago -->
+        <div class="row fontI pb-3">
+            <div class="col-lg-6 col-12 mb-3">
+                <label for="monto" class="form-label">Monto</label>
+                {{ form.monto|add_class:"form-control" }}
+                {% if not form.first_attempt %}
+                    {% for error in form.monto.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="col-lg-6 col-12 mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                {{ form.descripcion|add_class:"form-control" }}
+                {% if not form.first_attempt %}
+                    {% for error in form.descripcion.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a href="{% url 'lista_pagos' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const inputBuscar = document.getElementById("buscar_estudiante");
+    const listaResultados = document.getElementById("resultados_estudiantes");
+    const estudianteIdInput = document.getElementById("estudiante_id");
+    const labelNombreCompleto = document.getElementById("nombre_completo_estudiante");
+    const inscripcionSelect = document.getElementById("inscripcion_select");
+
+    // Buscador de estudiante (usa la vista buscar_estudiante)
+    inputBuscar.addEventListener("input", function () {
+        let query = this.value.trim();
+        listaResultados.innerHTML = "";
+        labelNombreCompleto.textContent = "";
+        inscripcionSelect.innerHTML = '<option value="">Seleccione una inscripción</option>';
+        estudianteIdInput.value = "";
+
+        if (query.length < 3) return; // Buscar solo si hay más de 2 caracteres
+
+        fetch(`/buscar_estudiante/?q=${query}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    data.forEach(estudiante => {
+                        let li = document.createElement("li");
+                        li.classList.add("list-group-item");
+                        li.style.cursor = "pointer";
+                        li.textContent = `${estudiante.usuario.nombre} ${estudiante.usuario.apellido} ${estudiante.usuario.apellidoM}`;
+                        li.dataset.id = estudiante.id;
+                        
+                        li.addEventListener("click", function () {
+                            // Actualiza el campo de búsqueda y el label con el nombre completo
+                            const nombreCompleto = `${estudiante.usuario.nombre} ${estudiante.usuario.apellido} ${estudiante.usuario.apellidoM}`;
+                            inputBuscar.value = nombreCompleto;
+                            labelNombreCompleto.textContent = nombreCompleto;
+                            labelNombreCompleto.classList.remove("text-danger");
+                            labelNombreCompleto.classList.add("text-success");
+                            estudianteIdInput.value = estudiante.id;
+                            listaResultados.innerHTML = "";
+                            
+                            // Carga las inscripciones para el estudiante seleccionado
+                            fetch(`/inscripciones_por_estudiante/?student_id=${estudiante.id}`)
+                                .then(response => response.json())
+                                .then(inscripciones => {
+                                    inscripcionSelect.innerHTML = '<option value="">Seleccione una inscripción</option>';
+                                    if (inscripciones.length > 0) {
+                                        inscripciones.forEach(inscripcion => {
+                                            let option = document.createElement("option");
+                                            option.value = inscripcion.id;
+                                            option.textContent = inscripcion.display;
+                                            inscripcionSelect.appendChild(option);
+                                        });
+                                    } else {
+                                        let option = document.createElement("option");
+                                        option.value = "";
+                                        option.textContent = "No tiene inscripciones";
+                                        inscripcionSelect.appendChild(option);
+                                    }
+                                })
+                                .catch(error => console.error("Error cargando inscripciones:", error));
+                        });
+                        listaResultados.appendChild(li);
+                    });
+                } else {
+                    labelNombreCompleto.textContent = "Estudiante no encontrado";
+                    labelNombreCompleto.classList.remove("text-success");
+                    labelNombreCompleto.classList.add("text-danger");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+    });
+});
+</script>
+{% endblock %}

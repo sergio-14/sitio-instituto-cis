@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Fondo del scrollbar */
+::-webkit-scrollbar-track {
+  background: transparent;
+  height: 300px;
+}
+
+/* Thumb del scrollbar (la parte que se mueve) */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+body {
+  background: #080127;
+}
+.fon-stilo {
+  padding-inline-start: 30px;
+  backdrop-filter: blur(0px) saturate(85%);
+    -webkit-backdrop-filter: blur(0px) saturate(85%);
+    background-color: rgba(238, 238, 239, 0.178);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+.imgr {
+  width: 350px;
+  height: 200px;
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
+
+.no-gutte{
+  border-radius: 18px;
+  background: #ffffff46;
+  
+}
+
+.img-bottom-left {
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+ 
+  width: 700px;
+  height: 460px;
+
+ 
+}
+
+@media (max-width: 867.98px) {
+  
+}
+.font {
+  font-family: "Anton";
+}
+.fontf {
+  font-family: "Lora";
+  color: #1c3b3f;
+}
+.text-login {
+  
+  font-family: "Anton";
+  font-size: 50px;
+  color: #fff6d8;
+  
+}
+
+.logologin {
+  position: relative;
+  z-index: 1000;
+}
+
+.shooting-stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+ 
+  background:  #010027;
+  background-image: radial-gradient(1px 1px at 10% 20%, white, transparent),
+                    radial-gradient(1px 1px at 30% 40%, white, transparent),
+                    radial-gradient(1px 1px at 50% 60%, white, transparent),
+                    radial-gradient(1px 1px at 70% 80%, white, transparent),
+                    radial-gradient(1px 1px at 90% 90%, white, transparent),
+                    radial-gradient(2px 2px at 15% 75%, white, transparent),
+                    radial-gradient(2px 2px at 60% 25%, white, transparent),
+                    radial-gradient(2px 2px at 85% 50%, white, transparent);
+  background-size: 100% 100%;
+}
+
+.shooting-stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+  background: #010027;
+}
+
+/* Fondo con estrellas en capas */
+.shooting-stars-container::before,
+.shooting-stars-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(4px 4px at 20% 30%, white, transparent),
+                    radial-gradient(1px 1px at 40% 70%, white, transparent),
+                    radial-gradient(7px 6px at 60% 50%, white, transparent),
+                    radial-gradient(2px 2px at 80% 20%, white, transparent);
+  background-size: 100% 100%;
+  animation: parallax-stars 60s linear infinite;
+}
+
+/* Capa más lejana (movimiento más lento) */
+.shooting-stars-container::before {
+  opacity: 0.5;
+  transform: scale(1.2);
+  animation-duration: 100s;
+}
+
+/* Capa más cercana (movimiento más rápido) */
+.shooting-stars-container::after {
+  opacity: 0.8;
+  transform: scale(1);
+  animation-duration: 50s;
+}
+
+/* Animación de movimiento sutil */
+@keyframes parallax-stars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100px);
+  }
+}
+
+@media screen and (min-width: 340px) and (max-width: 800px) {
+  .imgnone{
+    width: 340px;
+    height: 390px;
+  }
+}
+
+
+
+/* Estilo base de la estrella fugaz */
+.shooting-star {
+  position: absolute;
+  width: 3px;
+  height: 100px;
+  background: linear-gradient(transparent, rgb(173, 173, 173));
+  opacity: 0; /* Al inicio son invisibles */
+  transform: rotate(-45deg);
+  animation: shooting 9s linear infinite;
+}
+
+/* Animación mejorada */
+@keyframes shooting {
+  from {
+      transform: translateX(var(--start-x)) translateY(-50vh) rotate(-45deg); /* Inicia FUERA de la pantalla */
+      opacity: 0;
+  }
+  20% { 
+      opacity: 1; /* Empieza a aparecer cuando ya está cayendo */
+  }
+  to {
+      transform: translateX(calc(var(--start-x) + 20vw)) translateY(100vh) rotate(-45deg);
+      opacity: 0;
+  }
+}
+
+/* Estrellas con posiciones y tiempos distintos */
+.shooting-star:nth-child(1) { --start-x: 10vw; animation-delay: 3s; animation-duration: 12s; }
+.shooting-star:nth-child(2) { --start-x: 25vw; animation-delay: 1s; animation-duration: 8s; }
+.shooting-star:nth-child(3) { --start-x: 40vw; animation-delay: 2.5s; animation-duration: 9s; }
+.shooting-star:nth-child(4) { --start-x: 55vw; animation-delay: 3s; animation-duration: 11s; }
+.shooting-star:nth-child(5) { --start-x: 70vw; animation-delay: 4s; animation-duration: 6s; }
+.shooting-star:nth-child(6) { --start-x: 85vw; animation-delay: 5s; animation-duration: 9s; }
+.shooting-star:nth-child(7) { --start-x: 95vw; animation-delay: 9s; animation-duration: 9s; }
+
+.neon-lights-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  
+}
+
+/* Estilo base de cada luz */
+.neon-light {
+  position: absolute;
+  
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.7;
+}
+
+/* Luces de diferentes colores y posiciones */
+.neon-light.orange {
+  background: rgb(84, 4, 116); 
+  width: 300px;
+  height: 300px;
+  top: 40%;
+  left: 0;
+}
+
+.neon-light.blue {
+  background: rgba(0, 162, 255, 1); /* Azul */
+  width: 150px;
+  height: 150px;
+  top: 5%;
+  right: 5%;
+}
+
+.neon-light.green {
+  background: rgba(0, 255, 120, 1); /* Verde */
+  width: 300px;
+  height: 100px;
+  bottom: 0;
+  left: 25%;
+}
+
+.neon-light.yellow {
+  background: rgba(255, 255, 0, 1); 
+  width: 100px;
+  height: 100px;
+  bottom: 50%;
+  right: 50%;
+}
+
+
+
+.form-label{
+  color: #ffc400;
+  font-family: "Lora";
+  font-size: 14px;
+}
+
+.form-control{
+  background: #040a412a;
+  border: none;
+  position: relative;
+  z-index: 1001;
+  pointer-events: auto;
+  border-radius: 18px;
+  color: #ffffff;
+  font-family: "Lora";
+  font-size: 16px;
+}
+.form-control:focus {
+  background: #0306275b;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  color: #ffffff;
+}
+.form-control::placeholder {
+  color: #ffffff;
+  opacity: 0.7; /* Cambia la opacidad del placeholder */
+}
+.form-control:disabled {
+  background: #02062c59;
+  color: #ffffff;
+  opacity: 0.5; /* Cambia la opacidad del placeholder */
+}
+.form-control:disabled::placeholder {
+  color: #ffffff;
+  opacity: 0.5; /* Cambia la opacidad del placeholder */
+}
+
+.btn{
+  position: relative;
+  z-index: 1001;
+  pointer-events: auto;
+
+}
+

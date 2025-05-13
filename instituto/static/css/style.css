@@ -1,0 +1,386 @@
+
+
+main{
+    background: #eeeeee;
+   
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  /* Fondo del scrollbar */
+  ::-webkit-scrollbar-track {
+    background: rgb(0, 47, 75);
+    height: 300px;
+  }
+  
+  /* Thumb del scrollbar (la parte que se mueve) */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(255, 136, 0);
+  }
+  
+
+.font-title {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.font-subtitle {
+    font-family: "oswald", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.text-title{
+    color: #fff;
+    font-size: 70px;
+}
+.text-title2{
+    color: #ffa600;
+    font-size: 70px;
+}
+
+.text-title4{
+    font-family: "jaro", sans-serif;
+    color: #040335;
+    font-size: 50px;
+}
+
+.text-title3{
+    font-family: "jaro", sans-serif;
+    color: #ff961e;
+    font-size: 50px;
+}
+
+.text-title5{
+    font-family: "oswald", sans-serif;
+    color: #0a0114;
+    font-size: 14px;
+}
+
+.text-title6{
+    font-family: "oswald", sans-serif;
+    color: #100e30;
+    font-size: 13px;
+    
+}
+
+.text-subtitle{
+    padding-top: 10px;
+    color: #d3d3d3;
+    font-size: 20px;
+}
+.text-subtitle2{
+    padding-top: 10px;
+    color: #06011a;
+    font-size: 20px;
+}
+
+.sec-nosotros{
+    background: #dddde2;
+    padding: 50px 0;
+    border-radius: 30px;
+}
+.cont-actitud{
+    background: #ebebeb;
+    border: #ffffff 1px solid;
+    border-radius: 10px;
+}
+.text-actitud{
+    font-family: "jaro", sans-serif;
+    color: #060327;
+    font-size: 14px;
+}
+
+.text-subtitle3{
+    padding-top: 10px;
+    color: #ff9100;
+    font-size: 20px;
+}
+.text-subtitle1{
+    padding-top: 10px;
+    color: #ffb52b;
+    font-size: 23px;
+}
+.text-tri{
+    padding-top: 10px;
+    color: #ffe77c;
+    font-size: 14px;
+}
+.col-icon {
+  background: #050c2500;
+  color: #ffc400;
+  border-radius: 50px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 0 8px rgba(255, 238, 0, 0.7),
+              0 0 16px rgba(255, 238, 0, 0.5),
+              0 0 24px rgba(255, 238, 0, 0.3);
+
+  /* necesaria para que el transform funcione correctamente */
+  display: inline-block;
+
+  /* aplica la animación */
+  animation: wave 4s ease-in-out infinite;
+}
+
+/* definimos la animación */
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* escalonar la animación por cada SVG dentro de tu fila */
+/* asumiendo que cada <div> con SVG es hijo directo de .col-12 */
+.col-12 > div:nth-child(1) .col-icon {
+  animation-delay: 0s;
+}
+.col-12 > div:nth-child(2) .col-icon {
+  animation-delay: 0.5s;
+}
+.col-12 > div:nth-child(3) .col-icon {
+  animation-delay: 1s;
+}
+.col-12 > div:nth-child(4) .col-icon {
+  animation-delay: 1.5s;
+}
+
+.box {
+    border: 2px solid #ebebeb;
+    padding: 20px;
+    background: #ff9900;
+    border-radius: 10px;
+    text-align: center;
+    position: relative; 
+   
+   
+    
+}
+.number {
+    position: absolute;
+    top: -45px; /* Subir el número fuera del borde */
+    left: 20px; /* Alinear a la izquierda */
+    font-size: 3rem;
+    font-weight: bold;
+    color: #c7c7c7;
+    
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.btn-inicio{
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-family: "Oswald", sans-serif;
+    background: #ffa600;
+    font-size: 16px;
+    color: #ffffff;
+    
+}
+
+.card-img-top{
+    width: 100%;
+    height: 200px;
+   
+}
+
+.bg-cont{
+    background-color: #010027;
+    position: relative;
+    padding-left: 80px;
+    padding-right: 40px;
+
+}
+
+.neon-span {
+    position: absolute;
+    transform: translateY(-50%);
+    width: 250px;
+    height: 200px;
+    background-color: #003cff;
+    border-radius: 50%;
+    box-shadow: 0 0 25px #0277fc, 
+                0 0 50px #0270ff, 
+                0 0 100px #006eff;
+    filter: blur(70px);
+   
+    opacity: 25%;
+}
+
+/* Posición del span izquierdo */
+.neon-span.left {
+    left: 70px;
+    top: 20%;
+}
+
+/* Posición del span derecho */
+.neon-span.right {
+    top: 80%;
+    right: 35%;
+}
+
+
+
+.neon-span1 {
+    position: absolute;
+    transform: translateY(-50%);
+    width: 350px;
+    height: 60px;
+    background-color: #00ff2a;
+    border-radius: 50%;
+    box-shadow: 0 0 25px #02fc40, 
+                0 0 50px #02ff56, 
+                0 0 100px #00ff37;
+    filter: blur(70px);
+   
+    opacity: 25%;
+}
+
+/* Posición del span izquierdo */
+.neon-span1.left1 {
+    left: 70px;
+    top: 85%;
+}
+
+
+
+
+
+.row-contenido{
+    width: auto;
+    height: 100vh;
+}
+
+
+.img-container {
+    position: relative;
+    width: 100%;
+    height: 680px; 
+    overflow: hidden;
+}
+
+.card-body{
+    background: #dddddd;
+    
+}
+
+/* Oculta todas las imágenes por defecto */
+.imglogo {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* No deforma la imagen */
+    opacity: 0;
+    padding: 30px;
+    transition: opacity 1s ease-in-out;
+    animation: fadeAnimation 9s infinite;
+}
+
+/* Animación por orden de las imágenes */
+.imglogo:nth-child(1) {
+    animation-delay: 0s;
+}
+.imglogo:nth-child(2) {
+    animation-delay: 3s;
+}
+.imglogo:nth-child(3) {
+    animation-delay: 6s;
+}
+
+/* Animación con @keyframes */
+@keyframes fadeAnimation {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.btn-float {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-whatsapp {
+    bottom: 80px;
+    right: 20px;
+    background-color: #25D366;
+}
+
+.btn-top {
+    bottom: 20px;
+    right: 20px;
+    background-color: #0A1525;
+}
+
+.btn-float:hover {
+    opacity: 0.8;
+}
+
+
+.card-img-sombra1 {
+    position: absolute;
+    z-index: 1; 
+    width: auto;
+    max-width: 200px; 
+    opacity: 40%;
+    
+}
+
+/* Imagen en la parte superior izquierda al 30% */
+.card-img-sombra1:first-of-type {
+    top: 75%;
+    left: -27px;
+    transform: rotate(-75deg);
+}
+
+/* Imagen en la parte inferior derecha a 20px */
+.card-img-sombra1:last-of-type {
+    top: 0;
+    right: 5%;
+    max-width: 110px;
+    transform: rotate(65deg);
+}
+
+
+.card-img-sombra2 {
+    position: absolute;
+    z-index: 1; 
+    width: auto;
+    max-width: 200px; 
+    opacity: 40%;
+    
+}
+
+
+/* Imagen en la parte inferior derecha a 20px */
+.card-img-sombra2:last-of-type {
+    top: 0;
+    right: 5%;
+  
+}

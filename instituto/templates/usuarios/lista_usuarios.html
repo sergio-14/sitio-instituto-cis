@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container p-lg-5 no-gutte p-0">
+    <h2 class=" colortitle titlesuperior pb-2">Lista de Usuarios</h2>
+
+    <div class ="mb-3 row justify-content-end align-items-end fontI">
+        <div class="col-md-9  ">
+            <form method="get" class="mb-3 d-flex">
+                <input type="text" name="q" class="form-control me-2" placeholder="Buscar por nombre o apellido" value="{{ query|default:'' }}">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+                <a href="{% url 'lista_usuarios' %}" class="btn btn-outline-secondary ms-2">Limpiar</a>
+            </form>
+        
+        </div>
+        <div class="col-md-3 text-end">
+            
+            <a href="{% url 'agregar_usuario' %}" class="btn btn-outline-primary mb-3">Agregar Usuario</a>
+        </div>
+    </div>
+    <table class="table table-striped fontI">
+        <thead>
+            <tr>
+                <th>Foto</th>
+                <th>Email</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Dirección</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in page_obj %}
+            <tr>
+                <td data-label ="Foto" >
+                    {% if usuario.imagen %}
+                    <img src="{{ usuario.imagen.url }}" alt="Foto de {{ usuario.nombre }}" class="img-fluid" style="width: 50px; height: 50px; object-fit: cover;">
+                    {% else %}
+                    sin foto
+                    
+                    {% endif %}
+                </td>
+                <td data-label ="correo">{{ usuario.email }}</td>
+                <td data-label ="nombre">{{ usuario.nombre }} {{ usuario.apellido }} {{ usuario.apellidoM }}</td>
+                
+                <td data-label ="telefono">{{ usuario.telefono }}</td>
+                <td data-label ="direccion">{{ usuario.direccion }}</td>
+                <td data-label ="acciones">
+                    <a href="{% url 'editar_usuario' usuario.pk %}" class="btn btn-warning text-white btn-sm">Editar</a>
+                    {% if usuario.is_active %}
+                    <a href="{% url 'deshabilitar_usuario' usuario.pk %}" class="btn btn-outline-danger btn-sm"
+                       onclick="return confirm('¿Estás seguro de deshabilitar este usuario?')">Deshabilitar</a>
+                    {% else %}
+                    <a href="{% url 'activar_usuario' usuario.pk %}" class="btn btn-outline-success btn-sm"
+                       onclick="return confirm('¿Estás seguro de activar este usuario?')">Activar</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">No se encontraron usuarios.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Paginación -->
+    <nav class="pt-3">
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+           
+            <li class="page-item">
+                <a class="btn btn-sm btn-primary " href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">&lsaquo; Anterior</a>
+            </li>
+            {% endif %}
+
+            <li class="page-item disabled">
+                <span class="page-link">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+            </li>
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="btn btn-sm btn-primary" href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}">Siguiente &rsaquo;</a>
+            </li>
+            
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+{% endblock %}

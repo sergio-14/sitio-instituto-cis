@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid p-lg-5 no-gutte p-0">
+    <h2 class=" colortitle titlesuperior pb-2">Lista de Inscripciones</h2>
+    <div class="text-end pb-2">
+        <form method="get" class="row g-1 mb-1">
+            <div class="col-md-1  d-flex align-items-end">            
+                <a href="{% url 'lista_inscripciones' %}" class="btn btn-sm btn-outline-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+                      <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+                  </svg>
+                </a>
+            </div>
+            <div class="col-md-5">
+              <label for="curso" class="form-label text-star"></label>
+              <select name="curso" id="curso" class="form-select form-select-sm mt-2">
+                <option value="">Todos los cursos</option>
+                {% for curso in cursos %}
+                  <option value="{{ curso.id }}" {% if curso.id|stringformat:"s" == curso_id %}selected{% endif %}>{{ curso.titulo }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <a class="btn btn-primary w-100 btn-sm " href="{% url 'agregar_inscripcion' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-square-dotted" viewBox="0 0 16 16">
+                        <path d="M2.5 0q-.25 0-.487.048l.194.98A1.5 1.5 0 0 1 2.5 1h.458V0zm2.292 0h-.917v1h.917zm1.833 0h-.917v1h.917zm1.833 0h-.916v1h.916zm1.834 0h-.917v1h.917zm1.833 0h-.917v1h.917zM13.5 0h-.458v1h.458q.151 0 .293.029l.194-.981A2.5 2.5 0 0 0 13.5 0m2.079 1.11a2.5 2.5 0 0 0-.69-.689l-.556.831q.248.167.415.415l.83-.556zM1.11.421a2.5 2.5 0 0 0-.689.69l.831.556c.11-.164.251-.305.415-.415zM16 2.5q0-.25-.048-.487l-.98.194q.027.141.028.293v.458h1zM.048 2.013A2.5 2.5 0 0 0 0 2.5v.458h1V2.5q0-.151.029-.293zM0 3.875v.917h1v-.917zm16 .917v-.917h-1v.917zM0 5.708v.917h1v-.917zm16 .917v-.917h-1v.917zM0 7.542v.916h1v-.916zm15 .916h1v-.916h-1zM0 9.375v.917h1v-.917zm16 .917v-.917h-1v.917zm-16 .916v.917h1v-.917zm16 .917v-.917h-1v.917zm-16 .917v.458q0 .25.048.487l.98-.194A1.5 1.5 0 0 1 1 13.5v-.458zm16 .458v-.458h-1v.458q0 .151-.029.293l.981.194Q16 13.75 16 13.5M.421 14.89c.183.272.417.506.69.689l.556-.831a1.5 1.5 0 0 1-.415-.415zm14.469.689c.272-.183.506-.417.689-.69l-.831-.556c-.11.164-.251.305-.415.415l.556.83zm-12.877.373Q2.25 16 2.5 16h.458v-1H2.5q-.151 0-.293-.029zM13.5 16q.25 0 .487-.048l-.194-.98A1.5 1.5 0 0 1 13.5 15h-.458v1zm-9.625 0h.917v-1h-.917zm1.833 0h.917v-1h-.917zm1.834-1v1h.916v-1zm1.833 1h.917v-1h-.917zm1.833 0h.917v-1h-.917zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                    </svg> 
+                    Agregar Nueva Inscripción
+                </a>
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <a href="{% url 'lista_pagos' %}" class="btn w-100 btn-info text-white btn-sm ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1z"/>
+                    </svg>
+                    Lista de pagos Inscripción
+                </a>
+            </div>
+            <div class="input-group  ">
+                
+                <input type="text" name="estudiante" id="estudiante" class="form-control form-control-sm " value="" placeholder="Nombre del estudiante">
+                <button type="submit" class="btn btn-primary btn-sm ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg> Buscar
+                </button>
+            </div>
+        </form>
+        
+    </div>
+   
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                
+                <th>Imagen</th>
+                <th>Estudiante</th>
+                <th>Estado</th>
+                <th>Nivel</th>
+                <th>Precio</th>
+                <th style="width: 300px; ">Acciones</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for inscripcion in page_obj %}
+            <tr>
+                <td data-label="Foto">
+                    {% if inscripcion.estudiante.usuario.imagen %}
+                    <img src="{{ inscripcion.estudiante.usuario.imagen.url }}" alt="" class="img-thumbnail" style="width: 50px; height: 50px;">
+                    {% else %}
+                    <img src="{% static 'img/SINFOTO.webp' %}" alt="" class="img-thumbnail" style="width: 50px; height: 50px;">
+                    {% endif %}
+                </td>
+                
+                <td data-label="nombre">{{ inscripcion.estudiante }}</td>
+              
+                <td data-label="estado">{{ inscripcion.estado }}</td>
+                <td data-label="nivel">{{ inscripcion.curso.nivel }} ✔️</td>
+                <td data-label="precio">{{ inscripcion.precio_total }} Bs.</td>
+                <td data-label="acciones">
+                    <button type="button" class="btn btn-sm btn-secondary " data-bs-toggle="modal" data-bs-target="#detalleModal{{ inscripcion.id }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13A6 6 0 1 1 8 2a6 6 0 0 1 0 12z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 .876-.252 1.02-.598l.088-.416c.12-.531.287-.629.682-.629.246 0 .451.045.545.08l.082-.38-.45-.083c-.294-.07-.352-.176-.288-.469l.738-3.468c.194-.897-.105-1.319-.808-1.319-.545 0-.876.252-1.02.598l-.088.416c-.12.531-.287.629-.682.629-.246 0-.451-.045-.545-.08zm-.93-2.588a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0z"/>
+                        </svg>
+                        Detalle
+                    </button>
+                    
+                    <a href="{% url 'editar_inscripcion' inscripcion.id %}" class="btn btn-warning text-white btn-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                        </svg> Editar
+                    </a>
+
+                    {% if inscripcion.certificado %}
+                    
+                    <a href="{% url 'editar_certificado' inscripcion.certificado.id %}" class="btn btn-sm btn-outline-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                            <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                            <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                        </svg>
+                        Ver 
+                    </a>
+                    {% else %}
+                    
+                    <a href="{% url 'crear_certificado' inscripcion.id %}" class="btn btn-sm btn-outline-success">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-qr-code-scan" viewBox="0 0 16 16">
+                            <path d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5M.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5m15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5M4 4h1v1H4z"/>
+                            <path d="M7 2H2v5h5zM3 3h3v3H3zm2 8H4v1h1z"/>
+                            <path d="M7 9H2v5h5zm-4 1h3v3H3zm8-6h1v1h-1z"/>
+                            <path d="M9 2h5v5H9zm1 1v3h3V3zM8 8v2h1v1H8v1h2v-2h1v2h1v-1h2v-1h-3V8zm2 2H9V9h1zm4 2h-1v1h-2v1h3zm-4 2v-1H8v1z"/>
+                            <path d="M12 9h2V8h-2z"/>
+                        </svg>
+                        Add
+                    </a>
+                   
+                    {% endif %}
+                    
+                </td>
+            </tr>
+            <div class="modal fade" id="detalleModal{{ inscripcion.id }}" tabindex="-1" aria-labelledby="detalleModalLabel{{ inscripcion.id }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content fontI text-center" style="background:rgb(241, 241, 241);">
+                        <div class="modal-header" style="background:rgb(6, 3, 39);">
+                            <h5 class="modal-title text-warning" id="detalleModalLabel{{ inscripcion.id }}">Detalle de la Inscripción Estudiante</h5>
+                            <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-circle text-warning" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="modal-body fontII">
+                            <div class="text-center mb-3">
+                                {% if inscripcion.estudiante.usuario.imagen %}
+                                <img src="{{ inscripcion.estudiante.usuario.imagen.url }}" alt="" class="img-thumbnail rounded-circle" style="width: 150px; height: 150px;">
+                                {% else %}
+                                <img src="{% static 'img/SINFOTO.webp' %}" alt="" class="img-thumbnail rounded-circle" style="width: 150px; height: 150px;">
+                                {% endif %}
+                            </div >
+                            <p><strong>Estudiante:</strong> {{ inscripcion.estudiante }}</p>
+                            <p><strong>Curso:</strong> {{ inscripcion.curso }}</p>
+                            <p><strong>Fecha de Inscripción:</strong> {{ inscripcion.fecha_inscripcion }}</p>
+                            <h6 class="fontI">Detalle de pagos:</h6>
+                            <div class="text-center row mb-3 px-lg-5 px-1">
+                                <div class="col-4" style="background:rgba(51, 255, 0, 0.25);"><strong>Total:</strong><br> {{ inscripcion.precio_total }} Bs.
+                                </div>
+                                <div class="col-4" style="background:rgba(255, 155, 4, 0.31);"><strong>Abonaciones:</strong><br>{{ inscripcion.pagado }} Bs.
+                                </div>
+                                <div class="col-4" style="background:rgba(255, 230, 0, 0.47);"><strong>Saldo:</strong><br>{{ inscripcion.saldo }} Bs.
+                                </div>
+                                
+                            </div> 
+                           
+                        </div>
+                        <div class="modal-footer">
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </tbody>
+    </table>
+    <nav>
+        <ul class="pagination pt-2">
+          {% if page_obj.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?{% if curso_id %}curso={{ curso_id }}&{% endif %}{% if estudiante_query %}estudiante={{ estudiante_query }}&{% endif %}page={{ page_obj.previous_page_number }}">Anterior</a>
+            </li>
+          {% else %}
+            <li class="page-item disabled"><span class="page-link">Anterior</span></li>
+          {% endif %}
+      
+          <li class="page-item active">
+            <span class="page-link">{{ page_obj.number }}</span>
+          </li>
+      
+          {% if page_obj.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?{% if curso_id %}curso={{ curso_id }}&{% endif %}{% if estudiante_query %}estudiante={{ estudiante_query }}&{% endif %}page={{ page_obj.next_page_number }}">Siguiente</a>
+            </li>
+          {% else %}
+            <li class="page-item disabled"><span class="page-link">Siguiente</span></li>
+          {% endif %}
+        </ul>
+    </nav>
+    
+</div>
+
+
+{% endblock %}

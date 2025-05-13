@@ -1,0 +1,95 @@
+@media screen and (min-width: 340px) and (max-width: 760px) 
+{
+    
+    .bg-cont{
+        
+        padding-left: 5px;
+        padding-right: 5px; 
+    }
+    .img-container {
+    position: relative;
+    width: 100%;
+    height: 330px; 
+    overflow: hidden;
+    z-index: 1;
+    }
+
+    .text-title{
+        font-size: 30px; 
+        text-align: center;
+    }
+    .text-title2{
+        font-size: 30px; 
+        text-align: center;
+    }
+    .text-subtitle{
+        font-size:15px ;
+        text-align: center;
+        z-index: 1;
+    }
+    .text-subtitle1{
+        font-size:15px ;
+        text-align: center;
+        z-index: 1;
+    }
+    .text-subtitle2{
+        font-size:15px ;
+       
+        z-index: 1;
+    }
+    .text-subtitle3{
+        font-size:15px ;
+      
+        z-index: 1;
+    }
+   
+    .bt-2{
+        display: none;
+    }
+    .neon-span.left {
+
+        left: 0;
+
+        top: 20%;
+    }
+
+    .neon-span.right {
+        display: none;
+    }
+    .text-title3{
+        font-size: 30px; 
+        
+    }
+    .text-title4{
+        font-size: 30px;  
+    }
+    .bi-person-workspace{
+        width: 30px;
+        height: 30px;
+    }
+    .bi-people-fill{
+        width: 40px;
+        height: 40px;
+    }
+
+    .card-img-sombra1 {
+    position: absolute;
+    z-index: 1; 
+    width: auto;
+    max-width: 1500px; 
+    opacity: 40%;
+    }
+
+
+.card-img-sombra1:first-of-type {
+    display: none;
+}
+
+.card-img-sombra1:last-of-type {
+    top: 0;
+    right: 5%;
+    max-width: 60px;
+    transform: rotate(-55deg);
+}
+
+}

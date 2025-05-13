@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load bootstrap_filters %}
+{% block content %}
+<div class="container-fluid p-lg-5 no-gutte p-0">
+    <h2 class=" colortitle titlesuperior pb-2">{{ accion }}</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row fontI pb-3">
+            <div class="col-lg-12 col-12 mb-3">
+                <label for="titulo" class="form-label">Título Curso</label>
+                {{ form.titulo|add_class:"form-control" }}
+                {% if not form.first_attempt %}
+                    {% for error in form.titulo.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div> 
+            <div class="col-lg-6 col-12 mb-3">
+                <label for="docente" class="form-label">Docente</label>
+                {{ form.docente|add_class:"form-control" }}
+                {% if not form.first_attempt %}
+                    {% for error in form.docente.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %} 
+            </div>
+               
+            <div class="col-lg-2 col-12 mb-3">  
+                <label for="nivel" class="form-label">Nivel</label>
+                {{ form.nivel|add_class:"form-select" }}
+                {% if not form.first_attempt %}
+                    {% for error in form.nivel.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+    
+            </div>
+            <div class="col-lg-2 col-12 mb-3">  
+                <label for="precio" class="form-label">Precio</label>
+                {{ form.precio|add_class:"form-control" }}
+                {% if not form.first_attempt %}
+                    {% for error in form.precio.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+    
+            </div>
+            <div class="col-lg-2 col-12 mb-3">
+                <label for="duracion_horas" class="form-label">Duración (Horas)</label>
+                {{ form.duracion_horas|add_class:"form-control" }}
+                {% if not form.first_attempt %}
+                    {% for error in form.duracion_horas.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="col-lg-12 col-12 mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                {{ form.descripcion|add_class:"form-control" }}
+                {% if not form.first_attempt %}
+                    {% for error in form.descripcion.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="col-lg-12 col-12 mb-3">  
+                <label for="baner" class="form-label">Baner del Curso</label>
+                {{ form.baner|add_class:"form-control" }}
+                {% if not form.first_attempt %}
+                    {% for error in form.baner.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="col-lg-6 col-12 mb-3">  
+                <label for="fecha_inicio" class="form-label">Fecha Inicio</label>
+                {{ form.fecha_inicio|add_class:"form-control" }}
+                {% if not form.first_attempt %}
+                    {% for error in form.fecha_inicio.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="col-lg-6 col-12 mb-3">  
+                <label for="fecha_fin" class="form-label">Fecha Finalización</label>
+                {{ form.fecha_fin|add_class:"form-control" }}
+                {% if not form.first_attempt %}
+                    {% for error in form.fecha_fin.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <button type="submit" class="btn fontII btn-dark me-2">Guardar datos</button>
+        <a href="{% url 'lista_cursos' %}" class=" fontII btn btn-outline-secondary">Cancelar registro</a>
+    </form>
+</div>
+{% endblock %}

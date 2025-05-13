@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container my-4">
+  <h1>Editar Plantilla de Certificado</h1>
+  <!-- Formulario básico para cargar la imagen de fondo -->
+  <form id="plantillaForm" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="imagen_fondo" class="form-label">Imagen de Fondo</label>
+      <input type="file" class="form-control" id="imagen_fondo" name="imagen_fondo" accept="image/*">
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+  </form>
+</div>
+
+<!-- Vista previa del certificado -->
+<div class="container my-4">
+  <h2>Vista Previa del Certificado</h2>
+  <div id="previewArea" class="position-relative border" style="width: 100%; height: 500px; background: #eee;">
+    <!-- Imagen de fondo (se oculta hasta que se cargue un archivo) -->
+    <img id="previewImage" src="" alt="Vista Previa" class="w-100 h-100" style="object-fit: cover; display: none;">
+    <!-- Texto de ejemplo que se posiciona sobre la imagen -->
+    <div id="previewText" class="position-absolute" 
+         style="top: 50%; left: 50%; transform: translate(-50%, -50%);
+                font-size: 24px; color: #000; font-family: Arial;">
+      Texto de ejemplo
+    </div>
+  </div>
+</div>
+
+<!-- Controles para modificar posiciones y estilos -->
+<div class="container my-4">
+  <h3>Controles de Posición y Estilos</h3>
+  <div class="mb-3">
+    <label for="rangePosX" class="form-label">Posición X (%)</label>
+    <input type="range" class="form-range" id="rangePosX" min="0" max="100" value="50">
+    <span id="rangePosXVal">50%</span>
+  </div>
+  <div class="mb-3">
+    <label for="rangePosY" class="form-label">Posición Y (%)</label>
+    <input type="range" class="form-range" id="rangePosY" min="0" max="100" value="50">
+    <span id="rangePosYVal">50%</span>
+  </div>
+  <div class="mb-3">
+    <label for="rangeFontSize" class="form-label">Tamaño de Fuente (px)</label>
+    <input type="range" class="form-range" id="rangeFontSize" min="10" max="72" value="24">
+    <span id="rangeFontSizeVal">24px</span>
+  </div>
+  <div class="mb-3">
+    <label for="inputColor" class="form-label">Color de Texto</label>
+    <input type="color" class="form-control form-control-color" id="inputColor" value="#000000">
+  </div>
+  <!-- Botón para ver la imagen en pantalla completa -->
+  <button id="btnVistaCompleta" class="btn btn-secondary">Ver Imagen en Pantalla Completa</button>
+</div>
+
+<!-- Modal para vista completa de la imagen -->
+<div class="modal fade" id="fullScreenModal" tabindex="-1" aria-labelledby="fullScreenModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="fullScreenModalLabel">Vista Completa de la Imagen</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="modalFullImage" src="" alt="Vista Completa" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Elementos del DOM
+  const imagenInput = document.getElementById('imagen_fondo');
+  const previewImage = document.getElementById('previewImage');
+  const previewText = document.getElementById('previewText');
+  
+  const rangePosX = document.getElementById('rangePosX');
+  const rangePosY = document.getElementById('rangePosY');
+  const rangeFontSize = document.getElementById('rangeFontSize');
+  const inputColor = document.getElementById('inputColor');
+  
+  const rangePosXVal = document.getElementById('rangePosXVal');
+  const rangePosYVal = document.getElementById('rangePosYVal');
+  const rangeFontSizeVal = document.getElementById('rangeFontSizeVal');
+  
+  const btnVistaCompleta = document.getElementById('btnVistaCompleta');
+  const modalFullImage = document.getElementById('modalFullImage');
+  const fullScreenModal = new bootstrap.Modal(document.getElementById('fullScreenModal'), { keyboard: false });
+  
+  // Al cargar un archivo, se muestra la imagen en la vista previa y en el modal
+  imagenInput.addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        previewImage.src = e.target.result;
+        previewImage.style.display = 'block';
+        modalFullImage.src = e.target.result;
+      }
+      reader.readAsDataURL(file);
+    }
+  });
+  
+  // Función para actualizar la posición y estilos del texto en la vista previa
+  function updatePreview() {
+    const posX = rangePosX.value;
+    const posY = rangePosY.value;
+    const fontSize = rangeFontSize.value;
+    const color = inputColor.value;
+    
+    previewText.style.left = posX + '%';
+    previewText.style.top = posY + '%';
+    previewText.style.fontSize = fontSize + 'px';
+    previewText.style.color = color;
+    
+    rangePosXVal.textContent = posX + '%';
+    rangePosYVal.textContent = posY + '%';
+    rangeFontSizeVal.textContent = fontSize + 'px';
+  }
+  
+  // Eventos para actualizar en tiempo real al mover los controles
+  rangePosX.addEventListener('input', updatePreview);
+  rangePosY.addEventListener('input', updatePreview);
+  rangeFontSize.addEventListener('input', updatePreview);
+  inputColor.addEventListener('input', updatePreview);
+  
+  // Botón para ver la imagen en pantalla completa (modal)
+  btnVistaCompleta.addEventListener('click', function() {
+    if (modalFullImage.src) {
+      fullScreenModal.show();
+    } else {
+      alert('Primero selecciona una imagen de fondo.');
+    }
+  });
+});
+</script>
+{% endblock %}

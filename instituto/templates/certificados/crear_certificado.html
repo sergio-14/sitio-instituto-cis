@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load bootstrap_filters %}
+{% block content %}
+<div class="container-fluid p-lg-5 no-gutte p-0">
+    <h2 class="colortitle titlesuperior pb-2">Crear Certificado para {{ inscripcion.estudiante }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row fontI pb-3">
+            <div class="col-lg-12 col-12 mb-3">  
+                <label for="id_imagen_fondo" class="form-label">Fondo de Certificados</label>
+                {{ form.imagen_fondo|add_class:"form-control" }}
+                {% if not form.first_attempt %}
+                    {% for error in form.imagen_fondo.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <!-- Previsualización del fondo seleccionado -->
+        <div class="row pb-3">
+            <div class="col-12">
+                <img id="previewImagenFondo" src="" alt="Previsualización del fondo" style="display:none; max-width: 100%; border:1px solid #ccc; padding:5px;">
+            </div>
+        </div>
+        <button type="submit" class="btn fontII btn-dark me-2">Guardar datos</button>
+        <a href="{% url 'lista_cursos' %}" class="fontII btn btn-outline-danger">Cancelar registro</a>
+    </form>
+</div>
+
+<script>
+// Mapeo de los fondos disponibles: clave = pk, valor = URL de la imagen
+const fondos = {
+    {% for fondo in form.imagen_fondo.field.queryset %}
+        "{{ fondo.pk }}": "{{ fondo.imagen_fondo.url }}",
+    {% endfor %}
+};
+
+const selectImagenFondo = document.getElementById("id_imagen_fondo");
+const previewImg = document.getElementById("previewImagenFondo");
+
+// Función para actualizar la previsualización
+function actualizarPreview() {
+    const selectedValue = selectImagenFondo.value;
+    if (fondos[selectedValue]) {
+        previewImg.src = fondos[selectedValue];
+        previewImg.style.display = "block";
+    } else {
+        previewImg.style.display = "none";
+    }
+}
+
+// Actualiza la previsualización cuando se cambia la selección
+selectImagenFondo.addEventListener("change", actualizarPreview);
+
+// Si ya hay un valor preseleccionado, mostrar la imagen correspondiente al cargar la página
+document.addEventListener("DOMContentLoaded", actualizarPreview);
+</script>
+{% endblock %}

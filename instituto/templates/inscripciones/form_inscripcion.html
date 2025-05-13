@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load bootstrap_filters %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid p-lg-5 no-gutte p-0">
+    <h2 class=" colortitle titlesuperior pb-2">{{ accion }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row fontI pb-3">
+            <div class="col-lg-6 col-12 mb-3">
+                <label for="buscar_estudiante" class="form-label">Buscar Estudiante</label>
+                <input type="text" id="buscar_estudiante" class="form-control" placeholder="Nombre del estudiante">
+                <input type="hidden" name="estudiante" id="estudiante_id">
+                <ul id="resultados_estudiantes" class="list-group mt-2"></ul>
+                
+                <!-- Label para mostrar el nombre completo o "Estudiante no existente" -->
+                <label id="nombre_completo_estudiante" class="mt-2 text-danger "></label>
+            </div>
+            <div class="col-lg-6 col-12 mb-3">
+                <label for="curso" class="form-label">Curso</label>
+                {{ form.curso|add_class:"form-control" }}
+                {% if not form.first_attempt %}
+                    {% for error in form.curso.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+           
+            <div class="col-lg-3 col-12 mb-3">
+                <label for="precio_total" class="form-label">Precio Total</label>
+                {{ form.precio_total|add_class:"form-control" }}
+                {% if not form.first_attempt %}
+                    {% for error in form.precio_total.errors %}
+                        <div class="error">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>  
+        </div>
+        <button type="submit" class="btn btn-dark me-2">Guardar datos</button>
+        <a href="{% url 'lista_inscripciones' %}" class="btn btn-outline-danger">Cancelar registro</a>
+    </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const inputBuscar = document.getElementById("buscar_estudiante");
+        const listaResultados = document.getElementById("resultados_estudiantes");
+        const estudianteIdInput = document.getElementById("estudiante_id");
+        const labelNombreCompleto = document.getElementById("nombre_completo_estudiante");
+        
+        inputBuscar.addEventListener("input", function () {
+            let query = this.value.trim();
+            listaResultados.innerHTML = "";
+            labelNombreCompleto.textContent = "";  // Limpiar el mensaje anterior
+        
+            if (query.length < 3) return; // Buscar solo si hay más de 2 caracteres
+        
+            fetch(`/buscar_estudiante/?q=${query}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        data.forEach(estudiante => {
+                            let li = document.createElement("li");
+                            li.classList.add("list-group-item");
+                            li.textContent = `${estudiante.usuario.nombre} ${estudiante.usuario.apellido} ${estudiante.usuario.apellidoM}`;  // Nombre completo
+                            li.dataset.id = estudiante.id;
+        
+                            li.addEventListener("click", function () {
+                                inputBuscar.value = `${estudiante.usuario.nombre} ${estudiante.usuario.apellido} ${estudiante.usuario.apellidoM}`;
+                                estudianteIdInput.value = estudiante.id;
+                                labelNombreCompleto.textContent = `${estudiante.usuario.nombre} ${estudiante.usuario.apellido} ${estudiante.usuario.apellidoM}`;
+                                labelNombreCompleto.classList.remove("text-danger");
+                                labelNombreCompleto.classList.add("text-success");
+                                listaResultados.innerHTML = ""; // Limpiar la lista
+                            });
+        
+                            listaResultados.appendChild(li);
+                        });
+                    } else {
+                        labelNombreCompleto.textContent = "Estudiante no existente";
+                        labelNombreCompleto.classList.remove("text-success");
+                        labelNombreCompleto.classList.add("text-danger");
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+        });
+    });
+</script>
+{% endblock %}

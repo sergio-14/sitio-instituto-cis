@@ -1,0 +1,455 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* Wrapper para hacer scroll horizontal si es necesario */
+    .scroll-wrapper {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    /* Contenedor fijo para el certificado (por ejemplo, tamaño A4 horizontal) */
+    .certificado-container {
+        position: relative;
+        width: 1200px;  /* Ancho fijo */
+        height: 850px;  /* Alto fijo */
+        overflow: hidden;
+        margin: 20px auto; /* Centrado con margen */
+        border: 1px solid #ccc;
+        background-color: #fff;
+    }
+    .certificado-container img.fondo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .texto-certificado, #qr-container {
+        position: absolute;
+        text-align: center;
+        transition: all 0.2s ease-in-out;
+    }
+    #qr-container {
+        position: absolute;
+    }
+    #qr {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    /* Controles de posición fijos, de tamaño constante */
+    .position-controls {
+        width: 950px;
+        position: fixed;
+        bottom: -500px; /* Oculto inicialmente */
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(2, 21, 34, 0.76);
+        color: rgb(255, 255, 255);
+        padding: 10px;
+        border-radius: 10px;
+        transition: bottom 0.5s ease-in-out;
+        z-index: 999;
+    }
+    .position-controls.show {
+        bottom: 2px; /* Posición visible */
+    }
+    .position-controls label {
+        font-size: 14px;
+    }
+    /* Mensajes de notificación */
+    #mensaje-guardado {
+        position: fixed;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        z-index: 1000;
+        display: none;
+    }
+    #mensaje-error {
+        position: fixed;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #f44336;
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        z-index: 1000;
+        display: none;
+    }
+    /* Botón de engranaje (fijo, en la derecha) */
+    .btn-tool {
+        position: fixed;
+        top: 20%;
+        right: 0;
+        z-index: 9999;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border: 1px solid rgb(255, 196, 0);
+        background-color: rgba(3, 30, 48, 0.76);
+        padding: 10px;
+    }
+    .btn-tool1 {
+        position: fixed;
+        top: 30%;
+        right: 0;
+        z-index: 9999;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border: 1px solid rgb(255, 196, 0);
+        background-color: rgba(3, 30, 48, 0.76);
+        padding: 10px;
+    }
+    /* Animación de giro para el icono */
+    @keyframes girar {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    .rueda {
+        animation: girar 3s linear infinite;
+        color: rgb(255, 208, 0);
+    }
+    .rueda1 {
+        color: rgb(255, 208, 0);
+    }
+    /* Distribución en columnas de los controles usando Bootstrap */
+    .position-controls .row > .col {
+        padding: 5px;
+    }
+</style>
+
+<!-- Botón de engranaje para mostrar/ocultar controles -->
+<div class="btn-tool ">
+    <a href="javascript:void(0);" id="toggleControlsBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-gear rueda" viewBox="0 0 16 16">
+            <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+            <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+        </svg>
+    </a>
+   
+</div>
+<div class="btn-tool1 ">
+    <a id="capturar" class="">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class=" rueda1 bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708"/>
+        </svg>
+    </a>
+</div>
+
+<!-- Contenedor principal con scroll horizontal -->
+<div class="container-fluid p-0">
+    <!-- Mensajes de notificación -->
+    <div id="mensaje-guardado">¡Datos guardados correctamente!</div>
+    <div id="mensaje-error">Error al guardar los datos. <span id="detalle-error"></span></div>
+
+    <!-- Wrapper para scroll horizontal -->
+    <div class="scroll-wrapper">
+        <!-- Certificado -->
+        <div class="certificado-container">
+            {% if certificado.imagen_fondo %}
+                <img class="fondo" src="{{ certificado.imagen_fondo.imagen_fondo.url }}" alt="Certificado">
+            {% else %}
+                <p>No hay imagen de fondo para este certificado.</p>
+            {% endif %}
+
+            <div id="estudiante" class="texto-certificado" 
+                 style="top: {{ certificado.pos_y_estudiante }}%; left: {{ certificado.pos_x_estudiante }}%;
+                        font-family: {{ certificado.tipografia }}; color: {{ certificado.color_texto }};
+                        font-size: {{ certificado.fuente_estudiante }}px;">
+                <h2>{{ certificado.inscripcion.estudiante }}</h2>
+            </div>
+
+            <div id="titulo" class="texto-certificado" 
+                 style="top: {{ certificado.pos_y_titulo }}%; left: {{ certificado.pos_x_titulo }}%;
+                        font-family: {{ certificado.tipografia }}; color: {{ certificado.color_texto }};
+                        font-size: {{ certificado.fuente_titulo }}px;">
+                <p>{{ certificado.inscripcion.curso.titulo }}</p>
+            </div>
+
+            <div id="fecha" class="texto-certificado" 
+                 style="top: {{ certificado.pos_y_fecha }}%; left: {{ certificado.pos_x_fecha }}%;
+                        font-family: {{ certificado.tipografia }}; color: {{ certificado.color_texto }};
+                        font-size: {{ certificado.fuente_fecha }}px;">
+                <p>Fecha: {{ certificado.fecha_emision|date:"d M Y" }}</p>
+            </div>
+
+            <div id="qr-container" 
+                 style="top: {{ certificado.pos_y_qr }}%; left: {{ certificado.pos_x_qr }}%;
+                        width: {{ certificado.qr_width }}px; height: {{ certificado.qr_height }}px;">
+                <img id="qr" src="{{ certificado.qr_code.url }}" alt="QR Code">
+            </div>
+        </div>
+    </div>
+
+    <!-- Controles de posición, tipografía, color y tamaño (distribuidos en 5 columnas fijas) -->
+    <div class="position-controls">
+        <div class="row">
+            <!-- Columna Estudiante -->
+            <div class="col">
+                <h5>Estudiante</h5>
+                <label for="posXEstudiante">Posición X:</label>
+                <input class="form-range w-100" type="range" id="posXEstudiante" min="0" max="100" value="{{ certificado.pos_x_estudiante }}">
+                <label for="posYEstudiante">Posición Y:</label>
+                <input class="form-range w-100" type="range" id="posYEstudiante" min="0" max="100" value="{{ certificado.pos_y_estudiante }}">
+                <label for="fuenteEstudiante">Tamaño Fuente:</label>
+                <input class="form-control w-100" type="number" id="fuenteEstudiante" value="{{ certificado.fuente_estudiante }}">
+            </div>
+            <!-- Columna Título -->
+            <div class="col">
+                <h5>Título</h5>
+                <label for="posXTitulo">Posición X:</label>
+                <input class="form-range w-100" type="range" id="posXTitulo" min="0" max="100" value="{{ certificado.pos_x_titulo }}">
+                <label for="posYTitulo">Posición Y:</label>
+                <input class="form-range w-100" type="range" id="posYTitulo" min="0" max="100" value="{{ certificado.pos_y_titulo }}">
+                <label for="fuenteTitulo">Tamaño Fuente:</label>
+                <input class="form-control w-100" type="number" id="fuenteTitulo" value="{{ certificado.fuente_titulo }}">
+            </div>
+            <!-- Columna Fecha -->
+            <div class="col">
+                <h5>Fecha</h5>
+                <label for="posXFecha">Posición X:</label>
+                <input class="form-range w-100" type="range" id="posXFecha" min="0" max="100" value="{{ certificado.pos_x_fecha }}">
+                <label for="posYFecha">Posición Y:</label>
+                <input class="form-range w-100" type="range" id="posYFecha" min="0" max="100" value="{{ certificado.pos_y_fecha }}">
+                <label for="fuenteFecha">Tamaño Fuente:</label>
+                <input class="form-control w-100" type="number" id="fuenteFecha" value="{{ certificado.fuente_fecha }}">
+            </div>
+            <!-- Columna QR -->
+            <div class="col">
+                <h5>QR</h5>
+                <label for="posXQR">Posición X:</label>
+                <input class="form-range w-100" type="range" id="posXQR" min="0" max="100" value="{{ certificado.pos_x_qr }}">
+                <label for="posYQR">Posición Y:</label>
+                <input class="form-range w-100" type="range" id="posYQR" min="0" max="100" value="{{ certificado.pos_y_qr }}">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="qrWidth">Ancho:</label>
+                        <input class="form-control w-100" type="number" id="qrWidth" value="{{ certificado.qr_width }}">
+                    </div>
+                    <div class="col-6">
+                        <label for="qrHeight">Alto:</label>
+                        <input class="form-control w-100" type="number" id="qrHeight" value="{{ certificado.qr_height }}">
+                    </div>
+                </div>
+            </div>
+            <!-- Columna General -->
+            <div class="col">
+                <h5>General</h5>
+                <label for="tipografia">Tipografía:</label>
+                <select class="form-select w-100" id="tipografia">
+                    <option value="Arial" {% if certificado.tipografia == "Arial" %}selected{% endif %}>Arial</option>
+                    <option value="Times New Roman" {% if certificado.tipografia == "Times New Roman" %}selected{% endif %}>Times New Roman</option>
+                    <option value="Courier New" {% if certificado.tipografia == "Courier New" %}selected{% endif %}>Courier New</option>
+                    <option value="Verdana" {% if certificado.tipografia == "Verdana" %}selected{% endif %}>Verdana</option>
+                    <option value="Helvetica" {% if certificado.tipografia == "Helvetica" %}selected{% endif %}>Helvetica</option>
+                    <option value="Georgia" {% if certificado.tipografia == "Georgia" %}selected{% endif %}>Georgia</option>
+                    <option value="Trebuchet MS" {% if certificado.tipografia == "Trebuchet MS" %}selected{% endif %}>Trebuchet MS</option>
+                    <option value="Impact" {% if certificado.tipografia == "Impact" %}selected{% endif %}>Impact</option>
+                </select>
+                <label for="colorTexto">Color Texto:</label>
+                <input class="form-control w-100 form-control-color" type="color" id="colorTexto" value="{{ certificado.color_texto }}">
+                <div class="mt-2">
+                    <button type="button" id="btnGuardar" class="btn btn-primary w-100" onclick="guardarPosiciones()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+    document.getElementById("capturar").addEventListener("click", function() {
+      html2canvas(document.querySelector(".certificado-container"), { scale: 2 }).then(function(canvas) {
+        let link = document.createElement("a");
+        link.href = canvas.toDataURL("image/png");
+        link.download = "certificado.png";
+        link.click();
+      });
+    });
+</script>
+<script>
+    // Toggle de controles: muestra u oculta el contenedor .position-controls
+    const toggleBtn = document.getElementById('toggleControlsBtn');
+    const controls = document.querySelector('.position-controls');
+
+    toggleBtn.addEventListener('click', () => {
+        controls.classList.toggle('show');
+    });
+
+    // Referencias de elementos del certificado y controles
+    let estudiante = document.getElementById("estudiante");
+    let titulo = document.getElementById("titulo");
+    let fecha = document.getElementById("fecha");
+    let qrContainer = document.getElementById("qr-container");
+    let mensajeGuardado = document.getElementById("mensaje-guardado");
+    let mensajeError = document.getElementById("mensaje-error");
+    let detalleError = document.getElementById("detalle-error");
+
+    let posXEstudiante = document.getElementById("posXEstudiante");
+    let posYEstudiante = document.getElementById("posYEstudiante");
+    let posXTitulo = document.getElementById("posXTitulo");
+    let posYTitulo = document.getElementById("posYTitulo");
+    let posXFecha = document.getElementById("posXFecha");
+    let posYFecha = document.getElementById("posYFecha");
+    let posXQR = document.getElementById("posXQR");
+    let posYQR = document.getElementById("posYQR");
+
+    let selectTipografia = document.getElementById("tipografia");
+    let inputColorTexto = document.getElementById("colorTexto");
+    let inputFuenteEstudiante = document.getElementById("fuenteEstudiante");
+    let inputFuenteTitulo = document.getElementById("fuenteTitulo");
+    let inputFuenteFecha = document.getElementById("fuenteFecha");
+    let inputQRWidth = document.getElementById("qrWidth");
+    let inputQRHeight = document.getElementById("qrHeight");
+
+    // Función para mostrar mensajes temporales
+    function mostrarMensaje(elemento, duracion = 3000) {
+        elemento.style.display = "block";
+        setTimeout(() => {
+            elemento.style.display = "none";
+        }, duracion);
+    }
+
+    // Función para actualizar la visualización en vivo del certificado
+    function actualizarVista() {
+        estudiante.style.left = posXEstudiante.value + "%";
+        estudiante.style.top = posYEstudiante.value + "%";
+        estudiante.style.fontFamily = selectTipografia.value;
+        estudiante.style.color = inputColorTexto.value;
+        
+        // Actualizamos el tamaño de fuente tanto en el contenedor como en el h2 interno
+        estudiante.style.fontSize = inputFuenteEstudiante.value + "px";
+        let estudianteH2 = estudiante.querySelector("h2");
+        if (estudianteH2) {
+            estudianteH2.style.fontSize = inputFuenteEstudiante.value + "px";
+        }
+    
+        titulo.style.left = posXTitulo.value + "%";
+        titulo.style.top = posYTitulo.value + "%";
+        titulo.style.fontFamily = selectTipografia.value;
+        titulo.style.color = inputColorTexto.value;
+        titulo.style.fontSize = inputFuenteTitulo.value + "px";
+    
+        fecha.style.left = posXFecha.value + "%";
+        fecha.style.top = posYFecha.value + "%";
+        fecha.style.fontFamily = selectTipografia.value;
+        fecha.style.color = inputColorTexto.value;
+        fecha.style.fontSize = inputFuenteFecha.value + "px";
+    
+        qrContainer.style.left = posXQR.value + "%";
+        qrContainer.style.top = posYQR.value + "%";
+        qrContainer.style.width = inputQRWidth.value + "px";
+        qrContainer.style.height = inputQRHeight.value + "px";
+    }
+
+    // Asignar eventos a los controles para actualizar la vista en vivo
+    [
+        posXEstudiante, posYEstudiante, posXTitulo, posYTitulo,
+        posXFecha, posYFecha, posXQR, posYQR,
+        selectTipografia, inputColorTexto, inputFuenteEstudiante,
+        inputFuenteTitulo, inputFuenteFecha, inputQRWidth, inputQRHeight
+    ].forEach(function(input) {
+        input.addEventListener("input", actualizarVista);
+        input.addEventListener("change", actualizarVista);
+    });
+
+    inputFuenteEstudiante.addEventListener("input", function() {
+        // Aplicar al div contenedor
+        estudiante.style.fontSize = this.value + "px";
+        
+        // Aplicar directamente al h2 interno
+        let estudianteH2 = estudiante.querySelector("h2");
+        if (estudianteH2) {
+            estudianteH2.style.fontSize = this.value + "px";
+          
+        }
+    });
+    
+    // Asegurarnos de aplicar el mismo enfoque para el evento change
+    inputFuenteEstudiante.addEventListener("change", function() {
+        estudiante.style.fontSize = this.value + "px";
+        
+        let estudianteH2 = estudiante.querySelector("h2");
+        if (estudianteH2) {
+            estudianteH2.style.fontSize = this.value + "px";
+        }
+    });
+
+    // Llamada inicial para reflejar los valores actuales
+    actualizarVista();
+
+    // Función para enviar los datos actualizados al servidor vía AJAX
+    function guardarPosiciones() {
+        const btnGuardar = document.getElementById("btnGuardar");
+        btnGuardar.disabled = true;
+        btnGuardar.textContent = "Guardando...";
+        
+        const datos = {
+            pos_x_estudiante: posXEstudiante.value,
+            pos_y_estudiante: posYEstudiante.value,
+            fuente_estudiante: inputFuenteEstudiante.value,
+            pos_x_titulo: posXTitulo.value,
+            pos_y_titulo: posYTitulo.value,
+            fuente_titulo: inputFuenteTitulo.value,
+            pos_x_fecha: posXFecha.value,
+            pos_y_fecha: posYFecha.value,
+            fuente_fecha: inputFuenteFecha.value,
+            pos_x_qr: posXQR.value,
+            pos_y_qr: posYQR.value,
+            qr_width: inputQRWidth.value,
+            qr_height: inputQRHeight.value,
+            tipografia: selectTipografia.value,
+            color_texto: inputColorTexto.value
+        };
+        
+        console.log("Enviando datos:", datos);
+        
+        fetch("{% url 'guardar_posiciones_certificado' certificado.id %}", {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(datos)
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.text().then(text => {
+                    console.error("Error en la respuesta:", response.status, text);
+                    throw new Error("Error del servidor: " + response.status + " - " + text);
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Respuesta del servidor:", data);
+            mostrarMensaje(mensajeGuardado);
+        })
+        .catch(error => {
+            console.error("Error detallado:", error);
+            detalleError.textContent = error.message;
+            mostrarMensaje(mensajeError, 5000);
+        })
+        .finally(() => {
+            btnGuardar.disabled = false;
+            btnGuardar.textContent = "Guardar";
+        });
+    }
+
+    // Captura del certificado en PNG
+    document.getElementById("capturar").addEventListener("click", function() {
+        let certificado = document.querySelector(".certificado-container");
+        html2canvas(certificado, { scale: 2 }).then(canvas => {
+            let link = document.createElement("a");
+            link.href = canvas.toDataURL("image/png");
+            link.download = "certificado.png";
+            link.click();
+        });
+    });
+</script>
+{% endblock %}
