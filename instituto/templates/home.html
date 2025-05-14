@@ -284,12 +284,13 @@
                           </p>
                         </div>
                         <div class="col-4 text-center">
-                          <img
-                            src="{% static 'img/user.jpg' %}"
-                            class="img-fluid rounded-circle border border-4 border-warning"
-                            style="height: 70px; width: 70px"
-                            alt="Imagen 1"
-                          />
+                          {% if curso.docente.usuario.imagen %}
+                          <img src="{{ curso.docente.usuario.imagen.url }}" alt="Imagen del docente" class="img-fluid rounded-circle border border-4 border-warning"
+                            style="height: 70px; width: 70px">
+                          {% else %}
+                          sin foto
+                          {% endif %}
+                          
                           <div class="text-center pt-3">
                             <a
                               href="#"
