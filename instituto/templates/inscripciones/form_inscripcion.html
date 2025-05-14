@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container-fluid p-lg-5 no-gutte p-0">
+<div class="container-fluid p-lg-5 no-gutte p-3">
     <h2 class=" colortitle titlesuperior pb-2">{{ accion }}</h2>
     <form method="POST">
         {% csrf_token %}
@@ -38,7 +38,7 @@
             </div>  
         </div>
         <button type="submit" class="btn btn-dark me-2">Guardar datos</button>
-        <a href="{% url 'lista_inscripciones' %}" class="btn btn-outline-danger">Cancelar registro</a>
+        <a href="{% url 'lista_inscripciones' %}" class="btn btn-outline-secondary">Cancelar registro</a>
     </form>
 </div>
 

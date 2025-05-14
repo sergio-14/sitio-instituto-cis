@@ -5,8 +5,9 @@ from django.contrib.auth.decorators import login_required, permission_required
 from .models import User, Docente, Estudiante
 from django.contrib import messages
 
-def home (request):
-    return render(request, 'home.html')
+def home(request):
+    cursos = Curso.objects.all()
+    return render(request, 'home.html', {'cursos': cursos})
 
 
 def dashboard(request):
@@ -542,6 +543,7 @@ from .models import Certificado
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 from weasyprint import HTML, CSS
+from .models import Curso
 
 def generar_certificado_pdf(request, certificado_id):
     from .models import Certificado  # Asegúrate de importar tu modelo

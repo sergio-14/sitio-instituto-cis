@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load bootstrap_filters %}
 {% block content %}
-<div class="container-fluid p-lg-5 no-gutte p-0">
+<div class="container-fluid p-lg-5 no-gutte p-3">
     <h2 class=" colortitle titlesuperior pb-2">{{ accion }}</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}

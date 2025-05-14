@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container p-lg-5 no-gutte p-0">
+<div class="container-fluid p-lg-5 no-gutte p-3">
     <h2 class="colortitle titlesuperior pb-2">Lista de Estudiantes</h2>
     <div class ="mb-3 row justify-content-end align-items-end fontI">
         <div class="col-md-9  ">
@@ -13,7 +13,7 @@
     
                 </form>   
         </div>
-        <div class="col-md-3 text-end">
+        <div class="col-md-3 text-end mt-md-0 mt-2">
             <a href="{% url 'agregar_estudiante' %}" class="btn btn-outline-primary">Agregar {{ titulo_singular }}</a>
         </div>
     </div>

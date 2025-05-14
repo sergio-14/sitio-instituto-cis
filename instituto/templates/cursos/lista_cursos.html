@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container p-lg-5 no-gutte p-0">
+<div class="container-fluid p-lg-5 no-gutte p-3">
     <h2 class=" colortitle titlesuperior pb-2">Lista de Cursos Talleres</h2>
     <div class="text-end pb-2">
         <a class="btn btn-outline-primary btn-sm pb-1" href="{% url 'agregar_curso' %}">
@@ -12,7 +12,7 @@
         </a>
     </div>
     {% for curso in cursos %}
-    <div class="row no-gutte fontI p-md-3 my-2 d-flex justify-content-center align-items-center flex-column flex-md-row">
+    <div class="row no-gutte fontI p-md-3 py-3 my-4 d-flex justify-content-center align-items-center flex-column flex-md-row">
         <div class="col-md-3 text-center ">
             <div>
                 {% if curso.docente.usuario.imagen %}

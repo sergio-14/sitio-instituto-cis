@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container-fluid p-lg-5 no-gutte p-0">
+<div class="container-fluid p-lg-5 no-gutte p-3">
     <h2 class="colortitle titlesuperior pb-2">{{ accion }}</h2>
     <form method="POST">
         {% csrf_token %}
@@ -46,7 +46,7 @@
                 {% endif %}
             </div>
         </div>
-        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="submit" class="btn btn-dark">Guardar</button>
         <a href="{% url 'lista_pagos' %}" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>

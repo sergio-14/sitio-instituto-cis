@@ -63,7 +63,7 @@ main{
 .text-title6{
     font-family: "oswald", sans-serif;
     color: #100e30;
-    font-size: 13px;
+    font-size: 15px;
     
 }
 
@@ -194,6 +194,7 @@ main{
     position: relative;
     padding-left: 80px;
     padding-right: 40px;
+    height: 100vh ;
 
 }
 

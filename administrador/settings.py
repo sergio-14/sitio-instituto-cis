@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-tcku^q(!w6wk)*5vultwd7grj_7wgt7u5j$c_&uqzcy1=ig$3f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -144,7 +144,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SITE_URL = 'http://web-production-92cb.up.railway.app' 
-
+#SITE_URL = 'http://localhost ' 
 
 ALLOWED_HOSTS = ['localhost','web-production-92cb.up.railway.app']
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

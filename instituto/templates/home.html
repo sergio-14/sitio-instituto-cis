@@ -1,475 +1,894 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Instituto Tegnologico</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  <head>
+    <title>Instituto Tegnologico</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Cargar un archivo CSS global -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&family=Anton&family=Bebas+Neue&family=Boldonse&family=Bungee&family=Cal+Sans&family=Dancing+Script:wght@400..700&family=Jaro:opsz@6..72&family=Lobster&family=Marck+Script&family=Oleo+Script:wght@400;700&family=Oswald:wght@200..700&family=Pacifico&family=Permanent+Marker&family=Playwrite+RO:wght@100..400&family=Protest+Strike&family=Roboto:ital,wght@0,100..900;1,100..900&family=Satisfy&family=Special+Gothic+Condensed+One&family=Teko:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="loader" class="conteiner">
+      <img src="{% static 'img/logocarga.png' %}" alt="Logo" class="logo" />
+      <p class="fontIIII text-center">
+        Instituto de Investigación Interacción Social y Posgrado<br />
+        <span class="fontII text-center">
+          Carrera de Ingeniería de Sistemas<br />
+        </span>
+        <span class="fontIII text-center">
+          Universidad Autónoma del Beni José Ballivián
+        </span>
+      </p>
+
+      <div class="bar-container">
+        <div class="bar" id="progress-bar"></div>
+      </div>
+    </div>
+
+    <header></header>
+    <main id="content">
+      <article
+        class="bg-cont d-flex justify-content-center align-items-center pb-5"
+      >
+        <div class="row text-center w-100">
+          <!-- Sección de imágenes -->
+
+          <!-- Sección de texto e información -->
+          <div
+            class="col-12 col-lg-6 text-start order-2 order-md-1 align-self-center px-md-4"
+          >
+            <h1 class="text-title font-title">
+              <span class="text-title2">Comienza</span> Tú Conocimiento
+              <span class="text-title2">aquí</span>
+            </h1>
+            <p class="text-subtitle font-subtitle px-md-3 px-0">
+              Somos el
+              <span class="text-subtitle1"
+                >Instituto de Investigación Interacción Social y Posgrado.</span
+              >
+              Promoviendo el desarrollo científico y social mediante
+              <span class="text-subtitle1">proyectos innovadores,</span>
+              publicaciones y programas de especialización, Cursos y Talleres.
+            </p>
+
+            <!-- Sección de iconos informativos -->
+            <div class="row text-start">
+              <div
+                class="col-12 d-flex align-items-center justify-content-center px-0 px-md-5"
+              >
+                <a
+                  href="https://www.facebook.com/InstitutoDeInvestigacionCIS"
+                  class="bt-1"
+                  target="_blank"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="46"
+                    height="46"
+                    fill="currentColor"
+                    class="col-icon bi bi-facebook"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+                    />
+                  </svg>
+                </a>
+                <a href="tel:+72839000" class="bt-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="col-icon bi bi-telephone-plus" viewBox="0 0 16 16">
+                    <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                    <path fill-rule="evenodd" d="M12.5 1a.5.5 0 0 1 .5.5V3h1.5a.5.5 0 0 1 0 1H13v1.5a.5.5 0 0 1-1 0V4h-1.5a.5.5 0 0 1 0-1H12V1.5a.5.5 0 0 1 .5-.5"/>
+                  </svg>
+                </a>
+                <a href="https://wa.me/72839000" class="" target="_blank">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="46"
+                    height="46"
+                    fill="currentColor"
+                    class="col-icon bi bi-whatsapp"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"
+                    />
+                  </svg>
+                </a>
+                {% if user.is_authenticated %}
+                <form method="post" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                  <button
+                    class="btn btn-outline-warning col-icon rounded-5"
+                    type="submit"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="26"
+                      height="26"
+                      fill="currentColor"
+                      class="bi bi-person-rolodex"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+
+                      <path
+                        d="M1 1a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h.5a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h.5a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H6.707L6 1.293A1 1 0 0 0 5.293 1zm0 1h4.293L6 2.707A1 1 0 0 0 6.707 3H15v10h-.085a1.5 1.5 0 0 0-2.4-.63C11.885 11.223 10.554 10 8 10c-2.555 0-3.886 1.224-4.514 2.37a1.5 1.5 0 0 0-2.4.63H1z"
+                      />
+                    </svg>
+                    Cerrar Sesión
+                  </button>
+                </form>
+                {% else %}
+                <form method="post" action="{% url 'iniciar_sesion' %}">
+                  {% csrf_token %}
+                  <button
+                    class="btn btn-outline-warning col-icon rounded-5"
+                    type="submit"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="26"
+                      height="26"
+                      fill="currentColor"
+                      class="bi bi-person-rolodex"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+
+                      <path
+                        d="M1 1a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h.5a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h.5a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H6.707L6 1.293A1 1 0 0 0 5.293 1zm0 1h4.293L6 2.707A1 1 0 0 0 6.707 3H15v10h-.085a1.5 1.5 0 0 0-2.4-.63C11.885 11.223 10.554 10 8 10c-2.555 0-3.886 1.224-4.514 2.37a1.5 1.5 0 0 0-2.4.63H1z"
+                      />
+                    </svg>
+                    Iniciar Sesión
+                  </button>
+                </form>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-12 col-lg-6 d-flex order-1 order-md-2 flex-column align-items-center justify-content-center img-container"
+          >
+            <img
+              src="{% static 'img/mujerlogo2.png' %}"
+              alt="Logo 1"
+              class="imglogo fade-img mb-3"
+            />
+            <img
+              src="{% static 'img/log2.png' %}"
+              alt="Logo 2"
+              class="imglogo fade-img mb-3"
+            />
+            <img
+              src="{% static 'img/mujerlogo3.png' %}"
+              alt="Logo 3"
+              class="imglogo fade-img"
+            />
+          </div>
+        </div>
+        <span class="neon-span left"></span>
+        <span class="neon-span right"></span>
+      </article>
+
+      <section class="container mt-5 px-md-5 pb-2 mb-5 position-relative">
+        <img
+          src="{% static 'img/sombra.png' %}"
+          class="card-img-sombra1"
+          alt="Imagen 1"
         />
-        <!-- Cargar un archivo CSS global -->
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
-        
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
+        <img
+          src="{% static 'img/sombra.png' %}"
+          class="card-img-sombra1"
+          alt="Imagen 1"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Anton&family=Bebas+Neue&family=Boldonse&family=Bungee&family=Cal+Sans&family=Dancing+Script:wght@400..700&family=Jaro:opsz@6..72&family=Lobster&family=Marck+Script&family=Oleo+Script:wght@400;700&family=Oswald:wght@200..700&family=Pacifico&family=Permanent+Marker&family=Playwrite+RO:wght@100..400&family=Protest+Strike&family=Roboto:ital,wght@0,100..900;1,100..900&family=Satisfy&family=Special+Gothic+Condensed+One&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+        <div class="d-flex justify-content-between align-items-center">
+          <h2 class="text-title3 font-title pb-2 pt-5">
+            Disfruta
+            <span class="text-title4">
+              de los <br />Mejores Cursos
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="46"
+                height="46"
+                fill="currentColor"
+                class="bi bi-person-workspace"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
+                />
+                <path
+                  d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z"
+                />
+              </svg>
+            </span>
+          </h2>
+          <div class="pt-5">
+            <br /><br /><br />
+            <button
+              class="btn btn-sm"
+              type="button"
+              data-bs-target="#cardCarousel"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon bg-warning rounded-2"
+                aria-hidden="true"
+              ></span>
+            </button>
 
-        
-    </head>
+            <button
+              class="btn btn-sm"
+              type="button"
+              data-bs-target="#cardCarousel"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon bg-warning rounded-2"
+                aria-hidden="true"
+              ></span>
+            </button>
+          </div>
+        </div>
 
-    <body>
-        <header>
-            
-        </header>
-        <main> 
-            <article class="bg-cont  d-flex justify-content-center align-items-center pb-5">
-                <div class="row  text-center w-100">
-                    <!-- Sección de imágenes -->
-                    
-                    
-                    <!-- Sección de texto e información -->
-                    <div class="col-12 col-lg-6 text-start order-2 order-md-1 align-self-center px-md-4">
-                        <h1 class="text-title font-title"><span class="text-title2">Comienza</span>  Tú  
-                            Conocimiento <span class="text-title2">aquí</span> 
-                        </h1>
-                        <p class="text-subtitle font-subtitle px-md-3 px-0">Somos el 
-                            <span class="text-subtitle1">Instituto de Investigación Interacción Social y Posgrado.</span>
-                            Promoviendo el desarrollo científico y social mediante <span class="text-subtitle1">proyectos innovadores,</span> publicaciones y programas de especialización, Cursos y Talleres.
-                        </p>
-                        
-                        <!-- Sección de iconos informativos -->
-                        <div class="row text-start">
-                            <div class="col-12 d-flex align-items-center  justify-content-center px-0 px-md-5 ">
-                                
-                                <a href="https://www.facebook.com/InstitutoDeInvestigacionCIS" class=" bt-1" target="_blank">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="col-icon bi bi-facebook" viewBox="0 0 16 16">
-                                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
-                                    </svg>
-                                </a>
-                                <a href="tel:+72839000" class="bt-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="col-icon bi bi-telephone-plus-fill" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zM12.5 1a.5.5 0 0 1 .5.5V3h1.5a.5.5 0 0 1 0 1H13v1.5a.5.5 0 0 1-1 0V4h-1.5a.5.5 0 0 1 0-1H12V1.5a.5.5 0 0 1 .5-.5"/>
-                                    </svg>
-                                </a>
-                                <a href="https://wa.me/72839000" class="" target="_blank">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="col-icon bi bi-whatsapp" viewBox="0 0 16 16">
-                                        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
-                                    </svg>
-                                </a>
-                                {% if user.is_authenticated %}
-                                    <form method="post" action="{% url 'logout' %}">
-                                        {% csrf_token %}
-                                        <button class="btn btn-outline-warning col-icon rounded-5" type="submit">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-rolodex" viewBox="0 0 16 16">
-                       
-                                                <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
-                  
-                                                <path d="M1 1a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h.5a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h.5a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H6.707L6 1.293A1 1 0 0 0 5.293 1zm0 1h4.293L6 2.707A1 1 0 0 0 6.707 3H15v10h-.085a1.5 1.5 0 0 0-2.4-.63C11.885 11.223 10.554 10 8 10c-2.555 0-3.886 1.224-4.514 2.37a1.5 1.5 0 0 0-2.4.63H1z"/>
-                  
-                                            </svg> Cerrar Sesión
-                                        </button>
-                                    </form>
-                                    {% else %}
-                                    <form method="post" action="{% url 'iniciar_sesion' %}">
-                                        {% csrf_token %}
-                                        <button class="btn btn-outline-warning col-icon rounded-5" type="submit">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person-rolodex" viewBox="0 0 16 16">
-                       
-                                                <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
-                  
-                                                <path d="M1 1a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h.5a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h.5a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H6.707L6 1.293A1 1 0 0 0 5.293 1zm0 1h4.293L6 2.707A1 1 0 0 0 6.707 3H15v10h-.085a1.5 1.5 0 0 0-2.4-.63C11.885 11.223 10.554 10 8 10c-2.555 0-3.886 1.224-4.514 2.37a1.5 1.5 0 0 0-2.4.63H1z"/>
-                  
-                                            </svg> Iniciar Sesión
-                                        </button>
-                                    </form>
-                                {% endif %}
-                               
-                            </div>
-                            
+        <div
+          id="cardCarousel"
+          class="carousel slide pt-2"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row gap-3 gap-md-0">
+                {% for curso in cursos %}
+                <div class="col-md-6 mb-2">
+                  <div class="card">
+                    {% if curso.baner %}
+                    <img
+                      src="{{ curso.baner.url }}"
+                      class="card-img-top"
+                      alt="Imagen 1"
+                    />
+                    {% endif %}
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-8">
+                          <p class="text-title5">
+                            DOCENTE:<br />{{ curso.docente}}
+                          </p>
+                          <p class="text-title6 text-start">
+                            {{ curso.titulo }} 🚀
+                          </p>
                         </div>
-                        
-                       
-                    </div>
-                    <div class="col-12 col-lg-6 d-flex order-1 order-md-2 flex-column align-items-center justify-content-center img-container">
-                        <img src="{% static 'img/mujerlogo2.png' %}" alt="Logo 1" class="imglogo fade-img mb-3" />
-                        <img src="{% static 'img/log2.png' %}" alt="Logo 2" class="imglogo fade-img mb-3" />
-                        <img src="{% static 'img/mujerlogo3.png' %}" alt="Logo 3" class="imglogo fade-img" />
-                    </div>
-                </div>
-                <span class="neon-span left"></span>
-                <span class="neon-span right"></span>
-               
-            </article>
-            
-            <section class="container mt-5 px-md-5 pb-2 mb-5 position-relative">  
-                <img src="{% static 'img/sombra.png' %}" class="card-img-sombra1" alt="Imagen 1">
-                <img src="{% static 'img/sombra.png' %}" class="card-img-sombra1" alt="Imagen 1">
-
-                <div class="d-flex justify-content-between align-items-center">
-                    <h2 class="text-title3 font-title pb-2 pt-5">Disfruta   
-                        <span class="text-title4">
-                            de los <br>Mejores Cursos 
-                            <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="bi bi-person-workspace" viewBox="0 0 16 16">
-                                <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-                                <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.4 5.4 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2z"/>
-                            </svg>
-                        </span> 
-                    </h2>
-                    <div class="pt-5">
-                        <br><br><br>
-                        <button class="btn btn-sm" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
-                         
-                            <span class="carousel-control-prev-icon bg-warning rounded-2" aria-hidden="true"></span>
-                   
-                        </button>
-                    
-                        <button class="btn btn-sm" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
-                      
-                            <span class="carousel-control-next-icon bg-warning rounded-2" aria-hidden="true"></span>
-                  
-                        </button>
-                    </div>
-                </div>
-                
-                <div id="cardCarousel" class="carousel slide pt-2" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row gap-3 gap-md-0">
-                                <div class="col-md-4">
-                                    <div class="card ">
-                                        <img src="{% static 'img/1.jfif' %}" class="card-img-top" alt="Imagen 1">
-                                        <div class="card-body">
-                                            
-                                            <div class="row">
-                                                <div class="col-8">
-                                                    <p class="text-title5 ">DOCENTE:<br>Ing. franko Brrientos kafca Noruega</p>
-                                                    <p class="text-title6 text-start ">El Instituto de Investigación, Interacción Social y Posgrado es una entidad académica 🚀</p>
-                                                    
-                                                    
-                                                </div>
-                                                <div class="col-4 text-center"> 
-                                                    <img src="{% static 'img/user.jpg' %}" class="img-fluid rounded-circle border border-4 border-warning" style="height: 70px; width: 70px;" alt="Imagen 1">
-                                                    <div class="text-center pt-3">
-                                                        <a href="#" class="btn btn-warning btn-sm text-white font-subtitle">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-patch-plus" viewBox="0 0 16 16">
-                                                                <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5"/>
-                                                                <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911z"/>
-                                                            </svg>
-                                                            Ver
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <img src="{% static 'img/2.jpg'%}" class="card-img-top" alt="Imagen 2">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-8">
-                                                    <p class="text-title5 ">DOCENTE:<br>Ing. franko Brrientos kafca Noruega</p>
-                                                    <p class="text-title6 text-start ">El lenguaje Python es ampliamente usado para el desarrollo web, análisis de datos y automatización.🚀</p>
-                                                    
-                                                    
-                                                </div>
-                                                <div class="col-4 text-center">
-                                                    <img src="{% static 'img/user.jpg' %}" class="img-fluid rounded-circle border border-4 border-warning" style="height: 70px; width: 70px;" alt="Imagen 1">
-                                                    <div class="text-center pt-3">
-                                                        <a href="#" class="btn btn-warning btn-sm text-white font-subtitle">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-patch-plus" viewBox="0 0 16 16">
-                                                                <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5"/>
-                                                                <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911z"/>
-                                                            </svg>
-                                                            Ver
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <img src="{% static 'img/3.jpg'%}" class="card-img-top" alt="Imagen 3">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-8">
-                                                    <p class="text-title5 ">DOCENTE:<br>Ing. franko Brrientos kafca Noruega</p>
-                                                    <p class="text-title6 text-start ">El lenguaje Python es ampliamente usado para el desarrollo web, análisis de datos y automatización.🚀</p>
-                                                    
-                                                    
-                                                </div>
-                                                <div class="col-4 text-center">
-                                                    <img src="{% static 'img/user.jpg' %}" class="img-fluid rounded-circle border border-4 border-warning" style="height: 70px; width: 70px;" alt="Imagen 1">
-                                                    <div class="text-center pt-3">
-                                                        <a href="#" class="btn btn-warning btn-sm text-white font-subtitle">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-patch-plus" viewBox="0 0 16 16">
-                                                                <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5"/>
-                                                                <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911z"/>
-                                                            </svg>
-                                                            Ver
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-4 text-center">
+                          <img
+                            src="{% static 'img/user.jpg' %}"
+                            class="img-fluid rounded-circle border border-4 border-warning"
+                            style="height: 70px; width: 70px"
+                            alt="Imagen 1"
+                          />
+                          <div class="text-center pt-3">
+                            <a
+                              href="#"
+                              class="btn btn-warning btn-sm text-white font-subtitle"
+                              data-bs-toggle="modal"
+                              data-bs-target="#cursoModal{{ curso.id }}"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="26"
+                                height="26"
+                                fill="currentColor"
+                                class="bi bi-patch-plus"
+                                viewBox="0 0 16 16"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5"
+                                />
+                                <path
+                                  d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911z"
+                                />
+                              </svg>
+                              Ver
+                            </a>
+                          </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="row gap-3 gap-md-0">
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <img src="{% static 'img/4.jpg '%}" class="card-img-top" alt="Imagen 4">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-8">
-                                                    <p class="text-title5 ">DOCENTE:<br>Ing. franko Brrientos kafca Noruega</p>
-                                                    <p class="text-title6 text-start ">El lenguaje Python es ampliamente usado para el desarrollo web, análisis de datos y automatización.🚀</p>
-                                                    
-                                                    
-                                                </div>
-                                                <div class="col-4 text-center">
-                                                    <img src="{% static 'img/user.jpg' %}" class="img-fluid rounded-circle border border-4 border-warning" style="height: 70px; width: 70px;" alt="Imagen 1">
-                                                    <div class="text-center pt-3">
-                                                        <a href="#" class="btn btn-warning btn-sm text-white font-subtitle">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-patch-plus" viewBox="0 0 16 16">
-                                                                <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5"/>
-                                                                <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911z"/>
-                                                            </svg>
-                                                            Ver
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <img src="{% static 'img/5.png' %}" class="card-img-top" alt="Imagen 5">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-8">
-                                                    <p class="text-title5 ">DOCENTE:<br>Ing. franko Brrientos kafca Noruega</p>
-                                                    <p class="text-title6 text-start ">El lenguaje Python es ampliamente usado para el desarrollo web, análisis de datos y automatización.🚀</p>
-                                                    
-                                                    
-                                                </div>
-                                                <div class="col-4 text-center">
-                                                    <img src="{% static 'img/user.jpg' %}" class="img-fluid rounded-circle border border-4 border-warning" style="height: 70px; width: 70px;" alt="Imagen 1">
-                                                    <div class="text-center pt-3">
-                                                        <a href="#" class="btn btn-warning btn-sm text-white font-subtitle">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-patch-plus" viewBox="0 0 16 16">
-                                                                <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5"/>
-                                                                <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911z"/>
-                                                            </svg>
-                                                            Ver
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </section>
-            <section class="container py-5 position-relative" >
-               
-                <img src="{% static 'img/sombra2.png' %}" class="card-img-sombra2" alt="Imagen 1">
-                <div class="row g-0 sec-nosotros ">
-                    <div class="col-md-6 mb-md-0 p-md-4">
-                      <img src="{% static 'img/logomujer.png' %}"  class="img-fluid" alt="...">
-                    </div>
-                    <div class="col-md-6 p-md-4 p-1 ps-md-0 ">
-                        <h5 class="mt-0 text-title4">
-                            
-                            <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-people-fill text-subtitle1" viewBox="0 0 16 16">
-                                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-                            </svg>
-                            Sobre Nosotros 
-                        </h5>
-                        <p class="text-subtitle2 font-subtitle px-2"><span class="text-subtitle3">
-                            El Instituto de Investigación, Interacción Social y Posgrado</span> es una entidad 
-                            académica dedicada a la generación y difusión del conocimiento. <span class="text-subtitle3">Nuestro objetivo es impulsar 
-                            el desarrollo científico y social a través de proyectos innovadores</span>, publicaciones y programas de 
-                            especialización, maestría y doctorado. Fomentamos la investigación interdisciplinaria y la 
-                            interacción con la sociedad para contribuir al progreso y la transformación del entorno.
-                        </p>
-                        <div class="container text-center">
-                            <div class="row g-2">
-                              <div class="col-6 col-md-4"> 
-                                <div class="p-md-3 p-1 text-actitud cont-actitud text-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="text-warning bi bi-check2-circle" viewBox="0 0 16 16">
-                                        <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/>
-                                        <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
-                                        <path d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-                                    </svg>
-                                    <br>
-                                    Excelencia Académica
-                                </div>
-                              </div>
-                              <div class="col-6 col-md-4"> 
-                                <div class="p-md-3 p-1 text-actitud cont-actitud">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="text-warning bi bi-slack" viewBox="0 0 16 16">
-                                        <path d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111.756 8.43 1.68 8.43h1.682zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682zm6.749 1.682c0-.926.755-1.682 1.68-1.682S16 4.964 16 5.889s-.756 1.681-1.68 1.681h-1.681zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68s.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681z"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
-                                        <path d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-                                    </svg>
-                                    <br>
-                                    Innovación Científica 
-                                </div>
-                              </div>
-                              <div class="col-6 col-md-4"> 
-                                <div class="p-md-3 p-1 text-actitud cont-actitud">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="text-warning bi bi-wechat" viewBox="0 0 16 16">
-                                        <path d="M11.176 14.429c-2.665 0-4.826-1.8-4.826-4.018 0-2.22 2.159-4.02 4.824-4.02S16 8.191 16 10.411c0 1.21-.65 2.301-1.666 3.036a.32.32 0 0 0-.12.366l.218.81a.6.6 0 0 1 .029.117.166.166 0 0 1-.162.162.2.2 0 0 1-.092-.03l-1.057-.61a.5.5 0 0 0-.256-.074.5.5 0 0 0-.142.021 5.7 5.7 0 0 1-1.576.22M9.064 9.542a.647.647 0 1 0 .557-1 .645.645 0 0 0-.646.647.6.6 0 0 0 .09.353Zm3.232.001a.646.646 0 1 0 .546-1 .645.645 0 0 0-.644.644.63.63 0 0 0 .098.356"/>
-                                        <path d="M0 6.826c0 1.455.781 2.765 2.001 3.656a.385.385 0 0 1 .143.439l-.161.6-.1.373a.5.5 0 0 0-.032.14.19.19 0 0 0 .193.193q.06 0 .111-.029l1.268-.733a.6.6 0 0 1 .308-.088q.088 0 .171.025a6.8 6.8 0 0 0 1.625.26 4.5 4.5 0 0 1-.177-1.251c0-2.936 2.785-5.02 5.824-5.02l.15.002C10.587 3.429 8.392 2 5.796 2 2.596 2 0 4.16 0 6.826m4.632-1.555a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0m3.875 0a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
-                                        <path d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-                                    </svg>
-                                    <br>
-                                    Interacción Social
-                                </div>
-                              </div>
-                              <div class="col-6 col-md-4">
-                                <div class="p-md-3 p-1 text-actitud cont-actitud">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="text-warning bi bi-person-vcard" viewBox="0 0 16 16">
-                                        <path d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4m4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5M9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8m1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5"/>
-                                        <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96q.04-.245.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 1 1 12z"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
-                                        <path d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-                                    </svg>
-                                    <br>
-                                    Formación Integral
-                                </div>
-                              </div>
-                              <div class="col-6 col-md-4">
-                                <div class="p-md-3 p-1 text-actitud cont-actitud">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="text-warning bi bi-code-slash" viewBox="0 0 16 16">
-                                        <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
-                                        <path d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-                                    </svg>
-                                    <br>
-                                    Red de Colaboración
-                                </div>
-                              </div>
-                              
-                            </div>
-                        </div>
-                        
+                      </div>
                     </div>
                   </div>
-            </section>
-            <section class="container-fluid  text-center py-5">
-                <div class="container text-center ">
-                    <h2 class="mb-5 text-title4 font-title ">Administración y  <span class="text-title3">Detalles</span></h2>
-                    
-                    <div class="row justify-content-center">
-                        <div class="col-md-4  mb-3">
-                            <div class="box text-center ">
-                                <span class="number">01</span>
-                                <img src="{% static 'img/tito.jpg' %}" class="img-fluid rounded-circle border border-4 border-white" style="height: 120px; width: 120px;" alt="Imagen 1">
-                                <p class="text-white font-subtitle" >Eres docente y quieres conocer de qué se trata esta profesión.</p>
-                            </div>
+                </div>
+                <div
+                  class="modal fade"
+                  id="cursoModal{{ curso.id }}"
+                  tabindex="-1"
+                  aria-labelledby="cursoModalLabel{{ curso.id }}"
+                  aria-hidden="true"
+                >
+                  <div
+                    class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                  >
+                    <div
+                      class="modal-content text-subtitle2 font-subtitle"
+                      style="background: rgb(238, 238, 238)"
+                    >
+                      <div class="modal-header">
+                        <h5 class="modal-title">Detalle del Curso</h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Cerrar"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <div class="">
+                            {% if curso.docente.usuario.imagen %}
+                            <img
+                              src="{{ curso.docente.usuario.imagen.url }}"
+                              alt="Imagen del docente"
+                              class="img-fluid rounded-circle bg-nav border border-white rounded-2"
+                              style="width: 160px; height: 160px"
+                            />
+                            {% else %} sin foto {% endif %}
+                          </div>
+                          <p class="">
+                            Nombre Docente<br />
+                            {{ curso.docente}}
+                          </p>
                         </div>
-                        <div class="col-md-4  mb-3">
-                            <div class="box text-center">
-                                <span class="number">02</span>
-                                <img src="{% static 'img/morales.JPG' %}" class="img-fluid rounded-circle border border-4 border-white" style="height: 120px; width: 120px;" alt="Imagen 1">
-                                <p class="text-white font-subtitle">Ya trabajas como docente, pero deseas mejorar tu formación y ampliar tus conocimientos.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4  mb-3">
-                            <div class="box text-center ">
-                                <span class="number">03</span>
-                                <img src="{% static 'img/chao.jpg' %}" class="img-fluid rounded-circle border border-4 border-white" style="height: 120px; width: 120px;" alt="Imagen 1">
-                                <p class="text-white font-subtitle">Quieres destacarte en el mercado y potenciar tu carrera con una formación especializada.</p>
-                            </div>
-                        </div>
+                        <p class="text-title5 text-end">
+                          Fecha Inicio: {{ curso.fecha_inicio }} al {{
+                          curso.fecha_inicio }}
+                        </p>
+                        <h5
+                          class="text-center"
+                          id="cursoModalLabel{{ curso.id }}"
+                        >
+                          {{ curso.titulo }}
+                        </h5>
+
+                        <p class="text-title5 text-center">
+                          Descripción: {{ curso.descripcion }}
+                        </p>
+                        <p class="text-title5 text-center">
+                          Horas académicas: {{ curso.duracion_horas }} - Nivel:
+                          {{ curso.nivel }}
+                        </p>
+                        <p class="text-title5 text-center">
+                          Precio:
+                          <span
+                            class="bg-warning text-white px-3 py-1 rounded-5"
+                          >
+                            {{ curso.precio }} Bs.
+                          </span>
+                        </p>
+                        <!-- Más detalles si quieres -->
+                      </div>
+                      <div class="modal-footer">
+                        <a
+                          href="https://wa.me/59172839000?text=Hola%2C%20quiero%20inscribirme%20y%20tener%20usuario%20para%20el%20curso%3A%20{{ curso.titulo|urlencode }}"
+                          target="_blank"
+                          class="btn btn-outline-success"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="26"
+                            height="26"
+                            fill="currentColor"
+                            class="bi bi-check2-circle"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"
+                            />
+                            <path
+                              d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"
+                            />
+                          </svg>
+                          realizar Inscripción
+                        </a>
+                      </div>
                     </div>
+                  </div>
                 </div>
-            </section>
-            <div class=" mt-5">
-
-                <footer class="bg-light text-center text-white">
-                <!-- Grid container -->
-                <div class="container p-4 pb-0">
-                  
-                </div>
-                <!-- Grid container -->
-              
-                <!-- Copyright -->
-                <div class="text-center p-3" style="background-color: rgb(3, 7, 41);">
-                  © 2020 Copyright:
-                  <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-                </div>
-                <!-- Copyright -->
-              </footer>
-                
+                {% endfor %}
+              </div>
             </div>
-            <a href="https://wa.me/XXXXXXXXXX" target="_blank" class="btn-float btn-whatsapp">
-                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
-                    <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
-                </svg>
-            </a>
-        
-            <!-- Botón de Subir Arriba -->
-            <button class="btn-float btn-top" onclick="scrollToTop()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
-                </svg>
-            </button>
-        
-            <script>
-                function scrollToTop() {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-            </script>
-        </main>
+          </div>
+        </div>
+      </section>
+      <section class="container py-5 position-relative">
+        <img
+          src="{% static 'img/sombra2.png' %}"
+          class="card-img-sombra2"
+          alt="Imagen 1"
+        />
+        <div class="row g-0 sec-nosotros">
+          <div class="col-md-6 mb-md-0 p-md-4">
+            <img
+              src="{% static 'img/nosotros.png' %}"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-6 p-md-4 p-1 ps-md-0">
+            <h5 class="mt-0 text-title4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="56"
+                height="56"
+                fill="currentColor"
+                class="bi bi-people-fill text-subtitle1"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
+                />
+              </svg>
+              Sobre Nosotros
+            </h5>
+            <p class="text-subtitle2 font-subtitle px-2">
+              <span class="text-subtitle3">
+                El Instituto de Investigación, Interacción Social y
+                Posgrado</span
+              >
+              es una entidad académica dedicada a la generación y difusión del
+              conocimiento.
+              <span class="text-subtitle3"
+                >Nuestro objetivo es impulsar el desarrollo científico y social
+                a través de proyectos innovadores</span
+              >, publicaciones y programas de especialización, maestría y
+              doctorado. Fomentamos la investigación interdisciplinaria y la
+              interacción con la sociedad para contribuir al progreso y la
+              transformación del entorno.
+            </p>
+            <div class="container text-center">
+              <div class="row g-2">
+                <div class="col-6 col-md-4">
+                  <div class="p-md-3 p-1 text-actitud cont-actitud text-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      class="text-warning bi bi-check2-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"
+                      />
+                      <path
+                        d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-plus-circle-dotted"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"
+                      />
+                    </svg>
+                    <br />
+                    Excelencia Académica
+                  </div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="p-md-3 p-1 text-actitud cont-actitud">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      class="text-warning bi bi-slack"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111.756 8.43 1.68 8.43h1.682zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682zm6.749 1.682c0-.926.755-1.682 1.68-1.682S16 4.964 16 5.889s-.756 1.681-1.68 1.681h-1.681zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68s.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-plus-circle-dotted"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"
+                      />
+                    </svg>
+                    <br />
+                    Innovación Científica
+                  </div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="p-md-3 p-1 text-actitud cont-actitud">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      class="text-warning bi bi-wechat"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M11.176 14.429c-2.665 0-4.826-1.8-4.826-4.018 0-2.22 2.159-4.02 4.824-4.02S16 8.191 16 10.411c0 1.21-.65 2.301-1.666 3.036a.32.32 0 0 0-.12.366l.218.81a.6.6 0 0 1 .029.117.166.166 0 0 1-.162.162.2.2 0 0 1-.092-.03l-1.057-.61a.5.5 0 0 0-.256-.074.5.5 0 0 0-.142.021 5.7 5.7 0 0 1-1.576.22M9.064 9.542a.647.647 0 1 0 .557-1 .645.645 0 0 0-.646.647.6.6 0 0 0 .09.353Zm3.232.001a.646.646 0 1 0 .546-1 .645.645 0 0 0-.644.644.63.63 0 0 0 .098.356"
+                      />
+                      <path
+                        d="M0 6.826c0 1.455.781 2.765 2.001 3.656a.385.385 0 0 1 .143.439l-.161.6-.1.373a.5.5 0 0 0-.032.14.19.19 0 0 0 .193.193q.06 0 .111-.029l1.268-.733a.6.6 0 0 1 .308-.088q.088 0 .171.025a6.8 6.8 0 0 0 1.625.26 4.5 4.5 0 0 1-.177-1.251c0-2.936 2.785-5.02 5.824-5.02l.15.002C10.587 3.429 8.392 2 5.796 2 2.596 2 0 4.16 0 6.826m4.632-1.555a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0m3.875 0a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-plus-circle-dotted"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"
+                      />
+                    </svg>
+                    <br />
+                    Interacción Social
+                  </div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="p-md-3 p-1 text-actitud cont-actitud">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      class="text-warning bi bi-person-vcard"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4m4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5M9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8m1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5"
+                      />
+                      <path
+                        d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96q.04-.245.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 1 1 12z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-plus-circle-dotted"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"
+                      />
+                    </svg>
+                    <br />
+                    Formación Integral
+                  </div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="p-md-3 p-1 text-actitud cont-actitud">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="36"
+                      height="36"
+                      fill="currentColor"
+                      class="text-warning bi bi-code-slash"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-plus-circle-dotted"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"
+                      />
+                    </svg>
+                    <br />
+                    Red de Colaboración
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="container-fluid text-center py-5">
+        <div class="container text-center">
+          <h2 class="mb-5 text-title4 font-title">
+            Administración y <span class="text-title3">Detalles</span>
+          </h2>
 
-        <footer>
-            <!-- place footer here -->
+          <div class="row justify-content-center">
+            <div class="col-md-4 mb-3">
+              <div class="box text-center">
+                <span class="number">01</span>
+                <img
+                  src="{% static 'img/tito.jpg' %}"
+                  class="img-fluid rounded-circle border border-4 border-white"
+                  style="height: 120px; width: 120px"
+                  alt="Imagen 1"
+                />
+                <p class="text-white font-subtitle">
+                  Rector, Ph.D. Jesús Eguez Rivero
+                </p>
+                <p class="text-white font-subtitle">
+                  <span class="text-white font-subtitle">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-quote"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"
+                      />
+                    </svg> </span
+                  ><br />
+                  Eres docente y quieres conocer de qué se trata esta profesión.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="box text-center">
+                <span class="number">02</span>
+                <img
+                  src="{% static 'img/morales.JPG' %}"
+                  class="img-fluid rounded-circle border border-4 border-white"
+                  style="height: 120px; width: 120px"
+                  alt="Imagen 1"
+                />
+                <p class="text-white font-subtitle">
+                  Director CIS, Ing. Eduardo Morales Barroso
+                </p>
+                <p class="text-white font-subtitle">
+                  <span class="text-white font-subtitle">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-quote"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"
+                      />
+                    </svg> </span
+                  ><br />
+                  Ya trabajas como docente, pero deseas mejorar tu formación y
+                  ampliar tus conocimientos.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="box text-center">
+                <span class="number">03</span>
+                <img
+                  src="{% static 'img/chao.jpg' %}"
+                  class="img-fluid rounded-circle border border-4 border-white"
+                  style="height: 120px; width: 120px"
+                  alt="Imagen 1"
+                />
+                <p class="text-white font-subtitle">
+                  Director IIISP, Lic. Willian Chao Rivero
+                </p>
+                <p class="text-white font-subtitle">
+                  <span class="text-white font-subtitle">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-quote"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"
+                      />
+                    </svg> </span
+                  ><br />
+                  Quieres destacarte en el mercado y potenciar tu carrera con
+                  una formación especializada.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="mt-5">
+        <footer class=" font-subtitle text-white pt-4" style="background-color: rgb(209, 209, 209)">
+          <!-- Contenedor principal -->
+          <div class="container text-center text-md-start text-subtitle3" >
+            <div class="row align-items-center">
+              <!-- Menú de navegación -->
+              <div class="col-md-6 mb-3">
+                <h5 class="text-dark">Menú</h5>
+                <ul
+                  class="list-unstyled d-flex flex-wrap gap-3 justify-content-center justify-content-md-start"
+                >
+                  <li>
+                    <a href="#inicio" class="text-dark text-decoration-none"
+                      >Inicio</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#nosotros" class="text-dark text-decoration-none"
+                      >Nosotros</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#servicios" class="text-dark text-decoration-none"
+                      >Servicios</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#contacto" class="text-dark text-decoration-none"
+                      >Contacto</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Contacto -->
+              <div class="col-md-6 mb-3 text-md-end text-center">
+                <h5 class="text-dark">Contáctanos</h5>
+                <p class="mb-0 text-dark">📞 72839000</p>
+                <p class="mb-0 text-dark">📧 ii_cis@uabjb.edu.bo</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Línea inferior -->
+          <div
+            class="text-center p-3 mt-3"
+            style="background-color: rgb(3, 7, 41)"
+          >
+            © 2025 Copyright:
+            <a
+              class="text-white"
+              href="https://github.com/sergio-14?tab=repositories"
+              >Sergio-Webs-Service</a
+            >
+          </div>
         </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-       
+      </div>
+      <a
+        href="https://wa.me/XXXXXXXXXX"
+        target="_blank"
+        class="btn-float btn-whatsapp"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="26"
+          height="26"
+          fill="currentColor"
+          class="bi bi-whatsapp"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"
+          />
+        </svg>
+      </a>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"
-        ></script>
+      <!-- Botón de Subir Arriba -->
+      <button class="btn-float btn-top" onclick="scrollToTop()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="26"
+          height="26"
+          fill="currentColor"
+          class="bi bi-chevron-up"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"
+          />
+        </svg>
+      </button>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+      <script>
+        function scrollToTop() {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      </script>
+    </main>
+
+    <footer>
+      <!-- place footer here -->
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const bar = document.getElementById("progress-bar");
+        let progress = 0;
+
+        // Función que avanza la barra un % cada 100ms
+        const interval = setInterval(() => {
+          progress += 10;
+          if (progress > 100) progress = 100;
+          bar.style.width = progress + "%";
+
+          if (progress === 100) {
+            clearInterval(interval);
+            // Pequeña pausa para que el usuario vea 100%
+            setTimeout(hideLoader, 300);
+          }
+        }, 100);
+      });
+
+      // Al terminar de cargar todo (imágenes, scripts, etc.)
+      window.addEventListener("load", hideLoader);
+
+      function hideLoader() {
+        const loader = document.getElementById("loader");
+        const content = document.getElementById("content");
+        // Desvanece loader
+        loader.style.opacity = 0;
+        setTimeout(() => (loader.style.display = "none"), 500);
+        // Muestra contenido
+        content.classList.add("visible");
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
