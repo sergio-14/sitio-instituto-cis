@@ -10,13 +10,26 @@
 
     /* Contenedor fijo para el certificado (por ejemplo, tamaño A4 horizontal) */
     .certificado-container {
+    
         position: relative;
-        width: 1200px;  /* Ancho fijo */
-        height: 850px;  /* Alto fijo */
-        overflow: hidden;
-        margin: 20px auto; /* Centrado con margen */
+    
+        width: 1200px;
+    
+        height: 850px;
+    
+        margin: 20px auto;
+    
         border: 1px solid #ccc;
-        background-color: #fff;
+    
+    
+        background-image: url('{{ certificado.imagen_fondo.imagen_fondo.url }}');
+    
+        background-size: 100% 100%;   
+    
+        background-position: center;
+   
+        background-repeat: no-repeat;
+
     }
     .certificado-container img.fondo {
         width: 100%;
@@ -151,7 +164,7 @@
         <!-- Certificado -->
         <div class="certificado-container">
             {% if certificado.imagen_fondo %}
-                <img class="fondo" src="{{ certificado.imagen_fondo.imagen_fondo.url }}" alt="Certificado">
+               
             {% else %}
                 <p>No hay imagen de fondo para este certificado.</p>
             {% endif %}
